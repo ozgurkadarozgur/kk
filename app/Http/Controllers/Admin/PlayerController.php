@@ -56,7 +56,8 @@ class PlayerController extends Controller
      */
     public function show($id)
     {
-        //
+        $player = $this->playerRepository->findById($id);
+        return view('admin.player.show', compact('player'));
     }
 
     /**

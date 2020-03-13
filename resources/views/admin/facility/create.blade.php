@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-md-12">
             <!-- Horizontal Form -->
-            <div class="card">
+            <div class="card card-info">
                 <div class="card-header">
                     <h3 class="card-title">Tesis Ekle</h3>
                 </div>

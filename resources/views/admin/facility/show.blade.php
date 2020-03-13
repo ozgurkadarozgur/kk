@@ -27,7 +27,7 @@
         <div class="col-md-3">
 
             <!-- Profile Image -->
-            <div class="card card-primary card-outline">
+            <div class="card card-info card-outline">
                 <div class="card-body box-profile">
                     <div class="text-center">
                         <img class="profile-user-img img-fluid img-circle"
@@ -59,7 +59,7 @@
             <!-- /.card -->
 
             <!-- About Me Box -->
-            <div class="card card-primary">
+            <div class="card card-info">
                 <div class="card-header">
                     <h3 class="card-title">Hakkında</h3>
                 </div>
@@ -155,6 +155,19 @@
                                         <label for="price" class="col-sm-2 col-form-label">Fiyat</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="price" name="price" placeholder="Fiyat">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="price" class="col-sm-2 col-form-label">Çalışma Saatleri</label>
+                                        <div class="col-sm-10">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input type="time" class="form-control" id="work_hour_start" name="work_hour_start" placeholder="Başlangıç Saati">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="time" class="form-control" id="work_hour_end" name="work_hour_end" placeholder="Bitiş Saati">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">

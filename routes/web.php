@@ -39,6 +39,10 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::group(['prefix' => 'astroturfs'], function () {
         Route::get('/', 'AstroturfController@index')->name('admin.astroturf.index');
         Route::get('/{id}', 'AstroturfController@show')->name('admin.astroturf.show');
+        Route::patch('/{id}', 'AstroturfController@update')->name('admin.astroturf.update');
+        Route::post('/{id}/calendar', 'AstroturfController@store_calendar')->name('admin.astroturf.calendar.store');
+        Route::delete('/{id}/calendar', 'AstroturfController@destroy_calendar')->name('admin.astroturf.calendar.destroy');
+        Route::delete('/{id}/subscribed-calendar', 'AstroturfController@destroy_subscribed_calendar')->name('admin.astroturf.subscribed-calendar.destroy');
     });
 
     Route::group(['prefix' => 'player-skills'], function (){
@@ -48,6 +52,40 @@ Route::group(['namespace' => 'Admin'], function () {
 
     Route::group(['prefix' => 'players'], function (){
         Route::get('/', 'PlayerController@index')->name('admin.player.index');
+        Route::get('/{id}', 'PlayerController@show')->name('admin.player.show');
     });
 
+    Route::group(['prefix' => 'teams'], function () {
+        Route::get('/', 'TeamController@index')->name('admin.team.index');
+        Route::get('/{id}', 'TeamController@show')->name('admin.team.show');
+    });
+
+    Route::group(['prefix' => 'vs'], function () {
+        Route::get('/', 'VSController@index')->name('admin.vs.index');
+        Route::get('/{id}', 'VSController@show')->name('admin.vs.show');
+    });
+
+    /*
+    Route::group(['prefix' => 'tournaments'], function () {
+        Route::get('/', 'TournamentController@index');
+    });
+    */
+
+    Route::group(['prefix' => 'eliminations'], function () {
+        Route::get('/', 'EliminationController@index')->name('admin.elimination.index');
+        Route::get('/create', 'EliminationController@create')->name('admin.elimination.create');
+        Route::post('/', 'EliminationController@store')->name('admin.elimination.store');
+        Route::get('/{id}', 'EliminationController@show')->name('admin.elimination.show');
+        Route::get('/{id}/edit', 'EliminationController@edit')->name('admin.elimination.edit');
+        Route::patch('/{id}/update', 'EliminationController@update')->name('admin.elimination.update');
+        Route::delete('/{id}', 'EliminationController@destroy')->name('admin.elimination.destroy');
+        Route::post('/{id}/start', 'EliminationController@start')->name('admin.elimination.start');
+        Route::get('/{id}/matches', 'EliminationController@matches')->name('admin.elimination.matches');
+    });
+
+/*
+    Route::group(['prefix' => 'eliminations/{id}/matches'], function () {
+        Route::get('/', 'EliminationMatchController@index')->name('admin.elimination.match.index');
+    });
+*/
 });

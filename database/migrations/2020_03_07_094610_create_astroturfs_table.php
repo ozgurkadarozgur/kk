@@ -24,6 +24,8 @@ class CreateAstroturfsTable extends Migration
             $table->decimal('price',13 ,2);
             $table->json('services')->nullable();
             $table->text('image_url')->nullable();
+            $table->time('work_hour_start')->nullable();
+            $table->time('work_hour_end')->nullable();
             $table->timestamps();
 
             $table->foreign('facility_id')

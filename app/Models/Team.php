@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property $title
  * @property $image_url
  * @property $uniform
+ * @property $city_id
+ * @property $district_id
  * @property $is_active
  */
 class Team extends Model
@@ -25,6 +27,16 @@ class Team extends Model
     public function members()
     {
         return $this->hasMany(TeamMember::class, 'team_id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class, 'district_id');
     }
 
 }

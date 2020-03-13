@@ -11,6 +11,7 @@ namespace App\Repositories;
 
 use App\Models\Astroturf;
 use App\Repositories\Interfaces\IAstroturfRepository;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
 class AstroturfRepository implements IAstroturfRepository
@@ -38,6 +39,17 @@ class AstroturfRepository implements IAstroturfRepository
         }
     }
 
+    public function paginate(int $count): LengthAwarePaginator
+    {
+        try {
+            $astroturfs = Astroturf::paginate($count);
+            return $astroturfs;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
     public function create($data): ?Astroturf
     {
         try {
@@ -49,6 +61,8 @@ class AstroturfRepository implements IAstroturfRepository
             $astroturf->address = $data['address'];
             $astroturf->price = $data['price'];
             $astroturf->phone = $data['phone'];
+            $astroturf->work_hour_start = $data['work_hour_start'];
+            $astroturf->work_hour_end = $data['work_hour_end'];
             $astroturf->services = json_encode($data['services']);
             $astroturf->save();
             return $astroturf;
@@ -60,6 +74,22 @@ class AstroturfRepository implements IAstroturfRepository
 
     public function update($id, $data): ?Astroturf
     {
-        // TODO: Implement update() method.
+        try {
+            $astroturf = $this->findById($id);
+            $astroturf->city_id = 1;
+            $astroturf->district_id = 1;
+            $astroturf->title = $data['title'];
+            $astroturf->address = $data['address'];
+            $astroturf->price = $data['price'];
+            $astroturf->phone = $data['phone'];
+            $astroturf->work_hour_start = $data['work_hour_start'];
+            $astroturf->work_hour_end = $data['work_hour_end'];
+            $astroturf->services = json_encode($data['services']);
+            $astroturf->save();
+            return $astroturf;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
     }
 }

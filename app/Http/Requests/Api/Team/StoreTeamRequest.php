@@ -26,6 +26,8 @@ class StoreTeamRequest extends FormRequest
         return [
             'title' => 'required',
             'uniform' => 'required',
+            'city_id' => 'required',
+            'district_id' => 'required'
         ];
     }
 }

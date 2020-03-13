@@ -10,6 +10,7 @@ namespace App\Repositories\Interfaces;
 
 
 use App\Models\Astroturf;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
 interface IAstroturfRepository
@@ -17,6 +18,8 @@ interface IAstroturfRepository
     public function findById(int $id) : ?Astroturf;
 
     public function all() : Collection;
+
+    public function paginate(int $count) : LengthAwarePaginator;
 
     public function create($data) : ?Astroturf;
 

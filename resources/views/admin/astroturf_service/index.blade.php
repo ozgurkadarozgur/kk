@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-md-12">
             <!-- Horizontal Form -->
-            <div class="card">
+            <div class="card card-info">
                 <div class="card-header">
                     <h3 class="card-title">Hizmet Ekle</h3>
                 </div>
@@ -56,7 +56,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card card-info">
         <div class="card-header">
             <h3 class="card-title">Saha Hizmetleri</h3>
         </div>

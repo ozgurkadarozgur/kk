@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'v1', 'namespace' => 'api\
     Route::group(['prefix' => 'me'], function () {
         Route::get('/', 'PlayerController@me');
         Route::get('/teams', 'PlayerController@teams');
+        Route::get('/incoming-vs-requests', 'PlayerController@incoming_vs_requests');
+        Route::get('/outgoing-vs-requests', 'PlayerController@outgoing_vs_requests');
     });
 
     Route::group(['prefix' => 'players'], function () {
@@ -44,6 +46,23 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'v1', 'namespace' => 'api\
     Route::group(['prefix' => 'teams/{id}/members'], function () {
         Route::get('/', 'TeamMemberController@index');
         Route::post('/', 'TeamMemberController@store');
+    });
+
+    Route::group(['prefix' => 'astroturfs'], function () {
+        Route::get('/', 'AstroturfController@index');
+        Route::get('/{id}', 'AstroturfController@show');
+    });
+
+    Route::group(['prefix' => 'vs'], function () {
+        Route::post('/', 'VSController@vs_request');
+        Route::post('/{id}/invited-approve', 'VSController@invited_approve');
+        Route::post('/{id}/invited-reject', 'VSController@invited_reject');
+    });
+
+    Route::group(['prefix' => 'eliminations'], function () {
+        Route::get('/', 'EliminationController@index');
+        Route::post('/{id}/apply', 'EliminationController@apply');
+        Route::get('/{id}', 'EliminationController@show');
     });
 
 });

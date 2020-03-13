@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property $phone
  * @property $address
  * @property $price
+ * @property $work_hour_start
+ * @property $work_hour_end
  * @property $services
  */
 class Astroturf extends Model
@@ -35,6 +37,22 @@ class Astroturf extends Model
     public function district()
     {
         return $this->belongsTo(District::class, 'district_id');
+    }
+
+    public function getServiceListAttribute()
+    {
+        $services = $this->services;
+        if ($services){
+            $services = json_decode($services);
+            return AstroturfService::find($services);
+        } else {
+            return array();
+        }
+    }
+
+    public function calendar()
+    {
+        return $this->hasMany(AstroturfCalendar::class, 'astroturf_id');
     }
 
 }

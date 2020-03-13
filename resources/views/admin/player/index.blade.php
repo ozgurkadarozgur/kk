@@ -23,7 +23,7 @@
 @endsection
 
 @section('content')
-    <div class="card">
+    <div class="card card-info">
         <div class="card-header">
             <h3 class="card-title">Oyuncular</h3>
         </div>
@@ -44,7 +44,7 @@
                 @foreach($players as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td><a href="#">{{ $item->full_name }}</a></td>
+                        <td><a href="{{ route('admin.player.show', $item->id) }}">{{ $item->full_name }}</a></td>
                         <td>{{ $item->nick_name }}</td>
                         <td>{{ $item->phone }}</td>
                         <td>{{ $item->city }}</td>

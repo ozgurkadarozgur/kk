@@ -19,7 +19,9 @@ class CreateTeamsTable extends Migration
             $table->string('title');
             $table->text('image_url')->nullable();
             $table->tinyInteger('uniform');
-            $table->boolean('is_active')->default(false);
+            $table->boolean('is_active')->default(true);
+            $table->unsignedBigInteger('city_id');
+            $table->unsignedBigInteger('district_id');
             $table->timestamps();
 
             $table->foreign('owner_id')

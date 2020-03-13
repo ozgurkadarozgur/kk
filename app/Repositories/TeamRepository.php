@@ -57,6 +57,8 @@ class TeamRepository implements ITeamRepository
             $team->owner_id = $data['owner_id'];
             $team->title = $data['title'];
             $team->uniform = $data['uniform'];
+            $team->city_id = $data['city_id'];
+            $team->district_id = $data['district_id'];
             //$team->image_url = $data['image_url'];
             $team->save();
             return $team;

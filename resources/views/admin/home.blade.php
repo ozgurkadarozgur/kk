@@ -32,8 +32,7 @@
                 <div class="info-box-content">
                     <span class="info-box-text">Halı Saha</span>
                     <span class="info-box-number">
-                  10
-                  <small>%</small>
+                  {{ $info['astroturf_count'] }}
                 </span>
                 </div>
                 <!-- /.info-box-content -->
@@ -47,7 +46,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Oyuncu</span>
-                    <span class="info-box-number">41,410</span>
+                    <span class="info-box-number">{{ $info['player_count'] }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -77,7 +76,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Takım</span>
-                    <span class="info-box-number">2,000</span>
+                    <span class="info-box-number">{{ $info['team_count'] }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -90,7 +89,7 @@
     <div class="row">
         <div class="col-md-12">
             <!-- TABLE: LATEST ORDERS -->
-            <div class="card">
+            <div class="card card-info">
                 <div class="card-header border-transparent">
                     <h3 class="card-title">Tesisler</h3>
 
@@ -145,7 +144,7 @@
     <div class="row">
         <div class="col-md-12">
             <!-- TABLE: LATEST ORDERS -->
-            <div class="card">
+            <div class="card card-info">
                 <div class="card-header border-transparent">
                     <h3 class="card-title">Oyuncular</h3>
 
@@ -202,7 +201,7 @@
     <div class="row">
         <div class="col-md-12">
             <!-- TABLE: LATEST ORDERS -->
-            <div class="card">
+            <div class="card card-info">
                 <div class="card-header border-transparent">
                     <h3 class="card-title">Takımlar</h3>
 
@@ -219,26 +218,22 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Tesis</th>
-                                <th>Telefon</th>
-                                <th>İl</th>
-                                <th>İlçe</th>
+                                <th>Takım Adı</th>
+                                <th>Sahibi</th>
+                                <th>Oyuncu Sayısı</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($facilities as $items)
+                            @forelse($teams as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                    <td>Call of Duty IV</td>
-                                    <td><span class="badge badge-success">Shipped</span></td>
-                                    <td>
-                                        <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                    </td>
+                                    <td><a href="#">{{ $item->title }}</a></td>
+                                    <td>{{ $item->owner->full_name }}</td>
+                                    <td>{{ $item->members->count() }}</td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td class="text-center" colspan="4">Tesis bulunamadı.</td>
+                                    <td class="text-center" colspan="4">Takım bulunamadı.</td>
                                 </tr>
                             @endforelse
                             </tbody>
@@ -248,8 +243,8 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer clearfix">
-                    <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
-                    <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Yeni Ekle</a>
+                    <a href="{{ route('admin.team.index') }}" class="btn btn-sm btn-secondary float-right">Hepsini Görüntüle</a>
                 </div>
                 <!-- /.card-footer -->
             </div>

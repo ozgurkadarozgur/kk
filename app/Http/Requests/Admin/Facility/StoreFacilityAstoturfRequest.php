@@ -30,6 +30,8 @@ class StoreFacilityAstoturfRequest extends FormRequest
             'phone' => 'required',
             'address' => 'required',
             'price' => 'required',
+            'work_hour_start' => 'required',
+            'work_hour_end' => 'required',
             'services' => 'required',
         ];
     }

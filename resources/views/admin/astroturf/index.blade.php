@@ -23,7 +23,7 @@
 @endsection
 
 @section('content')
-    <div class="card">
+    <div class="card card-info">
         <div class="card-header">
             <h3 class="card-title">Halı Sahalar</h3>
         </div>
@@ -32,6 +32,7 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                    <th>#</th>
                     <th>Saha</th>
                     <th>Tesis</th>
                     <th>Telefon</th>
@@ -42,6 +43,7 @@
                 <tbody>
                 @foreach($astroturfs as $item)
                     <tr>
+                        <td>{{ $loop->iteration }}</td>
                         <td><a href="{{ route('admin.astroturf.show', $item->id) }}">{{ $item->title }}</a></td>
                         <td>{{ $item->facility->title }}</td>
                         <td>{{ $item->phone }}</td>
@@ -52,6 +54,8 @@
                 </tbody>
                 <tfoot>
                 <tr>
+                    <th>#</th>
+                    <th>Saha</th>
                     <th>Tesis</th>
                     <th>Telefon</th>
                     <th>Şehir</th>
