@@ -17,6 +17,7 @@ class CreateEliminationLevelsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('elimination_id');
             $table->string('title');
+            $table->boolean('is_over')->default(false);
             $table->timestamps();
 
             $table->foreign('elimination_id')

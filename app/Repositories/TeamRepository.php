@@ -28,6 +28,17 @@ class TeamRepository implements ITeamRepository
         }
     }
 
+    public function findByIdList(array $id_list): Collection
+    {
+        try {
+            $teams = Team::find($id_list);
+            return $teams;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
     public function all(): Collection
     {
         try {
@@ -67,4 +78,5 @@ class TeamRepository implements ITeamRepository
             return null;
         }
     }
+
 }

@@ -6,6 +6,7 @@ use App\Repositories\AstroturfCalendarRepository;
 use App\Repositories\AstroturfRepository;
 use App\Repositories\AstroturfServiceRepository;
 use App\Repositories\EliminationApplicationRepository;
+use App\Repositories\EliminationLevelRepository;
 use App\Repositories\EliminationMatchRepository;
 use App\Repositories\EliminationRepository;
 use App\Repositories\FacilityRepository;
@@ -13,6 +14,7 @@ use App\Repositories\Interfaces\IAstroturfCalendarRepository;
 use App\Repositories\Interfaces\IAstroturfRepository;
 use App\Repositories\Interfaces\IAstroturfServiceRepository;
 use App\Repositories\Interfaces\IEliminationApplicationRepository;
+use App\Repositories\Interfaces\IEliminationLevelRepository;
 use App\Repositories\Interfaces\IEliminationMatchRepository;
 use App\Repositories\Interfaces\IEliminationRepository;
 use App\Repositories\Interfaces\IFacilityRepository;
@@ -95,6 +97,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             IEliminationMatchRepository::class,
             EliminationMatchRepository::class
+        );
+
+        $this->app->bind(
+          IEliminationLevelRepository::class,
+          EliminationLevelRepository::class
         );
 
     }

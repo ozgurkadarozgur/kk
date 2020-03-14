@@ -42,4 +42,18 @@ class EliminationMatch extends Model
         return $this->belongsTo(Astroturf::class, 'astroturf_id');
     }
 
+    public function getForeignDataAttribute()
+    {
+        return [
+            'id' => $this->id,
+            'team1' => $this->team1->title,
+            'team2' => $this->team2->title,
+            'team1_score' => $this->team1_score,
+            'team2_score' => $this->team2_score,
+            'astroturf' => ($this->astroturf) ? $this->astroturf->title : null,
+            'start_date' => $this->start_date,
+            'start_time' => $this->start_time,
+        ];
+    }
+
 }

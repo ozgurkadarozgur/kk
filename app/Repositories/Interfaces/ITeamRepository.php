@@ -17,6 +17,8 @@ interface ITeamRepository
 {
     public function findById(int $id) : ?Team;
 
+    public function findByIdList(array $id_list) : Collection;
+
     public function all() : Collection;
 
     public function paginate(int $count) : LengthAwarePaginator;

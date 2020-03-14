@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property $id
  * @property $elimination_id
  * @property $title
+ * @property $order
+ * @property $is_over
  */
 class EliminationLevel extends Model
 {
@@ -17,7 +19,7 @@ class EliminationLevel extends Model
 
     public function matches()
     {
-        return $this->hasMany(EliminationMatch::class, 'level_id');
+        return $this->hasMany(EliminationMatch::class, 'level_id')->orderBy('id', 'asc');
     }
 
 }

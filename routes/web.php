@@ -81,11 +81,11 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::delete('/{id}', 'EliminationController@destroy')->name('admin.elimination.destroy');
         Route::post('/{id}/start', 'EliminationController@start')->name('admin.elimination.start');
         Route::get('/{id}/matches', 'EliminationController@matches')->name('admin.elimination.matches');
+        Route::post('/{id}/next-level', 'EliminationController@next_level')->name('admin.elimination.matches.next_level');
     });
 
-/*
-    Route::group(['prefix' => 'eliminations/{id}/matches'], function () {
-        Route::get('/', 'EliminationMatchController@index')->name('admin.elimination.match.index');
+    Route::group(['prefix' => 'elimination-matches'], function () {
+        Route::patch('/{id}', 'EliminationMatchController@update_partial')->name('admin.elimination.match.update');
     });
-*/
+
 });
