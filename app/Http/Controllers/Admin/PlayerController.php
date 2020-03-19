@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AdminMiddleware;
 use App\Repositories\Interfaces\IPlayerRepository;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ class PlayerController extends Controller
 
     public function __construct(IPlayerRepository $playerRepository)
     {
+        $this->middleware(AdminMiddleware::class);
         $this->playerRepository = $playerRepository;
     }
 

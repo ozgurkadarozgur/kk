@@ -3,23 +3,29 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Requests\Admin\Facility\StoreFacilityAstoturfRequest;
 use App\Http\Requests\Admin\Facility\StoreFacilityRequest;
+use App\Http\Requests\Admin\Facility\StoreFacilityUserRequest;
 use App\Repositories\Interfaces\IAstroturfRepository;
 use App\Repositories\Interfaces\IAstroturfServiceRepository;
 use App\Repositories\Interfaces\IFacilityRepository;
+use App\Repositories\Interfaces\IFacilityUserRepository;
 use Illuminate\Http\Request;
 
 class FacilityController extends Controller
 {
 
     private $facilityRepository;
+    private $facilityUserRepository;
     private $astroturfRepository;
     private $astroturfServiceRepository;
 
-    public function __construct(IFacilityRepository $facilityRepository, IAstroturfRepository $astroturfRepository, IAstroturfServiceRepository $astroturfServiceRepository)
+    public function __construct(IFacilityRepository $facilityRepository, IFacilityUserRepository $facilityUserRepository, IAstroturfRepository $astroturfRepository, IAstroturfServiceRepository $astroturfServiceRepository)
     {
+        $this->middleware(AdminMiddleware::class);
         $this->facilityRepository = $facilityRepository;
+        $this->facilityUserRepository = $facilityUserRepository;
         $this->astroturfRepository = $astroturfRepository;
         $this->astroturfServiceRepository = $astroturfServiceRepository;
     }
@@ -63,6 +69,13 @@ class FacilityController extends Controller
         $validated = $request->validated();
         $validated['facility_id'] = $id;
         $this->astroturfRepository->create($validated);
+        return redirect()->route('admin.facility.show', $id);
+    }
+
+    public function store_user(StoreFacilityUserRequest $request, $id)
+    {
+        $validated = $request->validated();
+        $this->facilityUserRepository->create($id, $validated);
         return redirect()->route('admin.facility.show', $id);
     }
 

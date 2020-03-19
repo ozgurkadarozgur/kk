@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'admin',
         'passwords' => 'users',
     ],
 
@@ -36,9 +36,14 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'admin' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        'facility' => [
+            'driver' => 'session',
+            'provider' => 'facility_users',
         ],
 
         'api' => [
@@ -70,6 +75,12 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+
+        'facility_users' => [
+            'driver' => 'eloquent',
+            'model' => \App\Models\FacilityUser::class,
+        ],
+
         'players' => [
             'driver' => 'eloquent',
             'model' => \App\Models\Player::class,

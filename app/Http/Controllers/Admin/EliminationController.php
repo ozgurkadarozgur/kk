@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Requests\Admin\Elimination\NextLevelEliminationRequest;
 use App\Http\Requests\Admin\Elimination\StartEliminationRequest;
 use App\Http\Requests\Admin\Elimination\StoreEliminationRequest;
@@ -26,6 +27,7 @@ class EliminationController extends Controller
 
     public function __construct(IEliminationRepository $eliminationRepository, IFacilityRepository $facilityRepository, IEliminationMatchRepository $eliminationMatchRepository, IEliminationLevelRepository $eliminationLevelRepository, ITeamRepository $teamRepository)
     {
+        $this->middleware(AdminMiddleware::class);
         $this->eliminationRepository = $eliminationRepository;
         $this->facilityRepository = $facilityRepository;
         $this->eliminationMatchRepository = $eliminationMatchRepository;

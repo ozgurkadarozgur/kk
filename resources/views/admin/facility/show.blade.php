@@ -101,6 +101,7 @@
                         <li class="nav-item"><a class="nav-link active" href="#astroturfs" data-toggle="tab">Sahalar</a></li>
                         <li class="nav-item"><a class="nav-link" href="#create_astroturf" data-toggle="tab">Saha Ekle</a></li>
                         <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#users" data-toggle="tab">Kullanıcılar</a></li>
                     </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body">
@@ -286,6 +287,61 @@
                                 </div>
                                 <!-- /.card-footer -->
                             </form>
+                        </div>
+                        <!-- /.tab-pane -->
+
+                        <div class="tab-pane" id="users">
+                            <form class="form-horizontal" method="post" action="{{ route('admin.facility.user.store', $facility->id) }}">
+                                @csrf
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label for="title" class="col-sm-2 col-form-label">Ad Soyad</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : ''  }}" id="name" name="name" placeholder="Ad Soyad">
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('name') }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="owner" class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''  }}" id="email" name="email" placeholder="Email">
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('email') }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="password" class="col-sm-2 col-form-label">Şifre</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="password" name="password" placeholder="Şifre">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-info float-right">Ekle</button>
+                                </div>
+                                <!-- /.card-footer -->
+                            </form>
+                            @foreach($facility->users as $item)
+                                <strong><i class="fas fa-book mr-1"></i> Ad Soyad</strong>
+
+                                <p class="text-muted">
+                                    {{ $item->name }}
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="fas fa-book mr-1"></i> Eamil</strong>
+
+                                <p class="text-muted">
+                                    {{ $item->email }}
+                                </p>
+
+                                <hr>
+                            @endforeach
                         </div>
                         <!-- /.tab-pane -->
                     </div>

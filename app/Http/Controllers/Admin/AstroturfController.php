@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Requests\Admin\Astroturf\UpdateAstroturfRequest;
 use App\Http\Requests\Admin\AstroturfCalendar\DestroyCalendarRequest;
 use App\Http\Requests\Admin\AstroturfCalendar\DestroySubscribedCalendarRequest;
@@ -24,6 +25,7 @@ class AstroturfController extends Controller
 
     public function __construct(IAstroturfRepository $astroturfRepository, IAstroturfCalendarRepository $astroturfCalendarRepository, IAstroturfServiceRepository $astroturfServiceRepository)
     {
+        $this->middleware(AdminMiddleware::class);
         $this->astroturfRepository = $astroturfRepository;
         $this->astroturfCalendarRepository = $astroturfCalendarRepository;
         $this->astroturfServiceRepository = $astroturfServiceRepository;

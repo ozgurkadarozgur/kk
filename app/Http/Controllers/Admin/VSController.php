@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AdminMiddleware;
 use App\Repositories\Interfaces\IVSRepository;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ class VSController extends Controller
 
     public function __construct(IVSRepository $vsRepository)
     {
+        $this->middleware(AdminMiddleware::class);
         $this->vsRepository = $vsRepository;
     }
 

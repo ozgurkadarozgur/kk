@@ -65,4 +65,10 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'v1', 'namespace' => 'api\
         Route::get('/{id}', 'EliminationController@show');
     });
 
+    Route::group(['prefix' => 'leagues'], function () {
+        Route::get('/', 'LeagueController@index');
+        Route::post('/{id}/apply', 'LeagueController@apply');
+        Route::get('/{id}', 'LeagueController@show');
+    });
+
 });

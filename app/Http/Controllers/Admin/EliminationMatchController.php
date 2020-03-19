@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Requests\Admin\EliminationMatch\UpdatePartialEliminationMatchRequest;
 use App\Repositories\Interfaces\IEliminationMatchRepository;
 use Carbon\Carbon;
@@ -15,6 +16,7 @@ class EliminationMatchController extends Controller
 
     public function __construct(IEliminationMatchRepository $eliminationMatchRepository)
     {
+        $this->middleware(AdminMiddleware::class);
         $this->eliminationMatchRepository = $eliminationMatchRepository;
     }
 

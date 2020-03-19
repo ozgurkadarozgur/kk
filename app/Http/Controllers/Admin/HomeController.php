@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AdminMiddleware;
 use App\Repositories\Interfaces\IAstroturfRepository;
 use App\Repositories\Interfaces\IFacilityRepository;
 use App\Repositories\Interfaces\IPlayerRepository;
 use App\Repositories\Interfaces\ITeamRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -20,6 +22,7 @@ class HomeController extends Controller
 
     public function __construct(IFacilityRepository $facilityRepository, IPlayerRepository $playerRepository, ITeamRepository $teamRepository, IAstroturfRepository $astroturfRepository)
     {
+        $this->middleware(AdminMiddleware::class);
         $this->facilityRepository = $facilityRepository;
         $this->playerRepository = $playerRepository;
         $this->teamRepository = $teamRepository;
@@ -28,10 +31,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        //return view('admin.astroturf.reservation');
-        $facilities = $this->facilityRepository->all();
-        $players = $this->playerRepository->all();
-        $teams = $this->teamRepository->all();
+        $facilities = $this->facilityRepository->all(10);
+        $players = $this->playerRepository->all(10);
+        $teams = $this->teamRepository->all(10);
 
         $info = [
             'astroturf_count' => $this->astroturfRepository->all()->count(),

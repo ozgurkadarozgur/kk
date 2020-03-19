@@ -16,7 +16,7 @@ interface IFacilityRepository
 {
     public function findById(int $id) : ?Facility;
 
-    public function all() : Collection;
+    public function all($limit) : Collection;
 
     public function create($data) : ?Facility;
 

@@ -6,6 +6,14 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * Class User
+ * @package App\Models
+ * @property $id
+ * @property $name
+ * @property $email
+ * @property $password
+ */
 class User extends Authenticatable
 {
     use Notifiable;

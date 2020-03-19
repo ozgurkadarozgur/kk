@@ -168,6 +168,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="info">
                     <a href="#" class="d-block">Admin</a>
                 </div>
+                <div class="info">
+                    <form id="logout-form" action="{{ route('admin.auth.logout') }}" method="post">
+                        @csrf
+                    </form>
+                    <a href="#" onclick="document.getElementById('logout-form').submit()" class="d-block">Çıkış Yap</a>
+                </div>
             </div>
 
             <!-- Sidebar Menu -->
@@ -352,13 +358,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('admin.elimination.index') }}" class="nav-link">
+                                        <a href="{{ route('admin.league.index') }}" class="nav-link">
                                             <i class="far fa-dot-circle nav-icon"></i>
                                             <p>Hepsini Görüntüle</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('admin.elimination.create') }}" class="nav-link">
+                                        <a href="{{ route('admin.league.create') }}" class="nav-link">
                                             <i class="far fa-dot-circle nav-icon"></i>
                                             <p>Yeni Ekle</p>
                                         </a>

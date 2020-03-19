@@ -11,6 +11,14 @@ namespace App\Helpers;
 
 class PayfullHelper
 {
+
+    public static const PROCESS_TYPE_VS_INVITED_ACCEPT = 'vs_invited_accept';
+    public static const PROCESS_TYPE_VS_INVITER_ACCEPT = 'vs_inviter_accept';
+    public static const PROCESS_TYPE_ELIMINATION_APPLICATION = 'elimination_application';
+    public static const PROCESS_TYPE_LEAGUE_APPLICATION = 'league_application';
+    public static const PROCESS_TYPE_ASTROTURF_RESERVATION = 'astroturf_reservation';
+    public static const PROCESS_TYPE_E_COMMERCE_BUY_PRODUCT= 'e_commerce_buy_product';
+
     private static $ERR_CODE_ARR = [
         '00' => 'Ödeme işlemi başarılı.',
         '03' => 'Yanlış müşteri adı.',
@@ -33,7 +41,8 @@ class PayfullHelper
             "merchant"=>"dev_api",
             "type"=>"Sale",
             "use3d"=>"1",
-            "return_url"=>"http://admin.kk.app-xr.com/payment-response",
+            //"return_url"=>"http://admin.kk.app-xr.com/payment-response",
+            "return_url"=> route('payment.payfull.handle_response'),
             "total"=> $price,
             "cc_name"=> $card->holderName,
             "cc_number"=> $card->cardNumber,

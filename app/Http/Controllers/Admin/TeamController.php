@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AdminMiddleware;
 use App\Repositories\Interfaces\ITeamRepository;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ class TeamController extends Controller
 
     public function __construct(ITeamRepository $teamRepository)
     {
+        $this->middleware(AdminMiddleware::class);
         $this->teamRepository = $teamRepository;
     }
 

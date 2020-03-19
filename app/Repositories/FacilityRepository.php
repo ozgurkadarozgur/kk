@@ -27,10 +27,15 @@ class FacilityRepository implements IFacilityRepository
         }
     }
 
-    public function all(): Collection
+    public function all($limit = null): Collection
     {
         try {
-            $facilities = Facility::all();
+            $facilities = null;
+            if ($limit) {
+                $facilities = Facility::all()->take($limit);
+            } else {
+                $facilities = Facility::all();
+            }
             return $facilities;
         } catch (\Exception $ex) {
             if (env('APP_DEBUG')) dd($ex);

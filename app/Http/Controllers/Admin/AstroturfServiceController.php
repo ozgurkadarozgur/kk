@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Requests\Admin\AstroturfService\StoreAstroturfServiceRequest;
 use App\Repositories\Interfaces\IAstroturfServiceRepository;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ class AstroturfServiceController extends Controller
 
     public function __construct(IAstroturfServiceRepository $astroturfServiceRepository)
     {
+        $this->middleware(AdminMiddleware::class);
         $this->astroturfServiceRepository = $astroturfServiceRepository;
     }
 

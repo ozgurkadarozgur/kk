@@ -10,6 +10,7 @@ use App\Repositories\EliminationLevelRepository;
 use App\Repositories\EliminationMatchRepository;
 use App\Repositories\EliminationRepository;
 use App\Repositories\FacilityRepository;
+use App\Repositories\FacilityUserRepository;
 use App\Repositories\Interfaces\IAstroturfCalendarRepository;
 use App\Repositories\Interfaces\IAstroturfRepository;
 use App\Repositories\Interfaces\IAstroturfServiceRepository;
@@ -18,15 +19,24 @@ use App\Repositories\Interfaces\IEliminationLevelRepository;
 use App\Repositories\Interfaces\IEliminationMatchRepository;
 use App\Repositories\Interfaces\IEliminationRepository;
 use App\Repositories\Interfaces\IFacilityRepository;
+use App\Repositories\Interfaces\IFacilityUserRepository;
+use App\Repositories\Interfaces\ILeagueApplicationRepository;
+use App\Repositories\Interfaces\ILeagueFixtureRepository;
+use App\Repositories\Interfaces\ILeagueRepository;
 use App\Repositories\Interfaces\IPlayerRepository;
 use App\Repositories\Interfaces\IPlayerSkillRepository;
 use App\Repositories\Interfaces\ITeamMemberRepository;
 use App\Repositories\Interfaces\ITeamRepository;
+use App\Repositories\Interfaces\IUserRepository;
 use App\Repositories\Interfaces\IVSRepository;
+use App\Repositories\LeagueApplicationRepository;
+use App\Repositories\LeagueFixtureRepository;
+use App\Repositories\LeagueRepository;
 use App\Repositories\PlayerRepository;
 use App\Repositories\PlayerSkillRepository;
 use App\Repositories\TeamMemberRepository;
 use App\Repositories\TeamRepository;
+use App\Repositories\UserRepository;
 use App\Repositories\VSRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -40,8 +50,18 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
+          IUserRepository::class,
+          UserRepository::class
+        );
+
+        $this->app->bind(
             IFacilityRepository::class,
             FacilityRepository::class
+        );
+
+        $this->app->bind(
+          IFacilityUserRepository::class,
+          FacilityUserRepository::class
         );
 
         $this->app->bind(
@@ -102,6 +122,21 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
           IEliminationLevelRepository::class,
           EliminationLevelRepository::class
+        );
+
+        $this->app->bind(
+            ILeagueRepository::class,
+            LeagueRepository::class
+        );
+
+        $this->app->bind(
+            ILeagueApplicationRepository::class,
+            LeagueApplicationRepository::class
+        );
+
+        $this->app->bind(
+          ILeagueFixtureRepository::class,
+          LeagueFixtureRepository::class
         );
 
     }

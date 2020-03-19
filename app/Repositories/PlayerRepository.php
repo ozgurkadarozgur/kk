@@ -28,10 +28,15 @@ class PlayerRepository implements IPlayerRepository
         }
     }
 
-    public function all(): Collection
+    public function all($limit = null): Collection
     {
         try {
-            $players = Player::all();
+            $players = null;
+            if ($limit) {
+                $players = Player::all()->take($limit);
+            } else {
+                $players = Player::all();
+            }
             return $players;
         } catch (\Exception $ex) {
             if (env('APP_DEBUG')) dd($ex);

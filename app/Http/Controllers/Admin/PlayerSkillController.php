@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Requests\Admin\PlayerSkill\StorePlayerSkillRequest;
 use App\Repositories\Interfaces\IPlayerSkillRepository;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ class PlayerSkillController extends Controller
 
     public function __construct(IPlayerSkillRepository $playerSkillRepository)
     {
+        $this->middleware(AdminMiddleware::class);
         $this->playerSkillRepository = $playerSkillRepository;
     }
 

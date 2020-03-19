@@ -34,4 +34,9 @@ class Facility extends Model
         return $this->hasMany(Astroturf::class, 'facility_id');
     }
 
+    public function users()
+    {
+        return $this->hasMany(FacilityUser::class, 'facility_id');
+    }
+
 }

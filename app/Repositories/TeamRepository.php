@@ -39,10 +39,15 @@ class TeamRepository implements ITeamRepository
         }
     }
 
-    public function all(): Collection
+    public function all($limit = null): Collection
     {
         try {
-            $teams = Team::all();
+            $teams = null;
+            if ($limit) {
+                $teams = Team::all()->take($limit);
+            } else {
+                $teams = Team::all();
+            }
             return $teams;
         } catch (\Exception $ex) {
             if (env('APP_DEBUG')) dd($ex);

@@ -31,6 +31,17 @@ class EliminationRepository implements IEliminationRepository
         }
     }
 
+    public function findByFacilityId(int $facility_id) : Collection
+    {
+        try {
+            $eliminations = Elimination::where('facility_id', $facility_id)->get();
+            return $eliminations;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
     public function all(): Collection
     {
         try {
@@ -72,6 +83,7 @@ class EliminationRepository implements IEliminationRepository
                 $level = new EliminationLevel();
                 $level->elimination_id = $elimination->id;
                 $level->title = $i. '. Aşama';
+                $level->order = $i;
                 $level->save();
             }
 

@@ -17,6 +17,8 @@ interface IEliminationRepository
 {
     public function findById(int $id) : ?Elimination;
 
+    public function findByFacilityId(int $facility_id) : Collection;
+
     public function all() : Collection;
 
     public function paginate(int $count) : LengthAwarePaginator;
