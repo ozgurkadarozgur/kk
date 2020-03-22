@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Helpers\OAuthHelper;
+use App\Helpers\VatanSMS;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Account\SignInRequest;
 use App\Http\Requests\Api\Account\SignUpRequest;
@@ -46,11 +47,28 @@ class AccountController extends Controller
     public function sign_up_validate_1(SignUpValidate1 $request)
     {
         $validated = $request->validated();
+
+        $code = rand(10000, 99999);
+        $message = 'KAFAKAFAYA SMS KODU '. $code . '.';
+        $result = VatanSMS::send($validated['phone'], $message);
+        if ($result) {
+            return response()->json([
+                'status' => 'success',
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'data' => 'Bir hata oluştu. Lütfen daha sonra tekrar deneyin.'
+            ]);
+        }
     }
 
     public function sign_up_validate_2(SignUpValidate2 $request)
     {
         $validated = $request->validated();
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 
 }
