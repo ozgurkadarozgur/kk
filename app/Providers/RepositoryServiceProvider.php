@@ -25,6 +25,7 @@ use App\Repositories\Interfaces\IFacilityUserRepository;
 use App\Repositories\Interfaces\ILeagueApplicationRepository;
 use App\Repositories\Interfaces\ILeagueFixtureRepository;
 use App\Repositories\Interfaces\ILeagueRepository;
+use App\Repositories\Interfaces\IPlayerPositionRepository;
 use App\Repositories\Interfaces\IPlayerRepository;
 use App\Repositories\Interfaces\IPlayerSkillRepository;
 use App\Repositories\Interfaces\ITeamMemberRepository;
@@ -34,6 +35,7 @@ use App\Repositories\Interfaces\IVSRepository;
 use App\Repositories\LeagueApplicationRepository;
 use App\Repositories\LeagueFixtureRepository;
 use App\Repositories\LeagueRepository;
+use App\Repositories\PlayerPositionRepository;
 use App\Repositories\PlayerRepository;
 use App\Repositories\PlayerSkillRepository;
 use App\Repositories\TeamMemberRepository;
@@ -89,6 +91,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             IPlayerSkillRepository::class,
             PlayerSkillRepository::class
+        );
+
+        $this->app->bind(
+            IPlayerPositionRepository::class,
+            PlayerPositionRepository::class
         );
 
         $this->app->bind(

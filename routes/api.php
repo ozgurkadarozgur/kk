@@ -28,6 +28,7 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'api', 'pr
     Route::get('/cities', 'CityController@index');
     Route::get('/cities/{id}/districts', 'CityController@districts');
     Route::get('/player-skills', 'PlayerSkillController@index');
+    Route::get('/player-positions', 'PlayerPositionController@index');
 });
 
 Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api', 'prefix' => 'v1', 'namespace' => 'api\v1'], function () {
