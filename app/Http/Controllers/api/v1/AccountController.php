@@ -9,6 +9,7 @@ use App\Http\Requests\Api\Account\SignInRequest;
 use App\Http\Requests\Api\Account\SignUpRequest;
 use App\Http\Requests\Api\Account\SignUpValidate1;
 use App\Http\Requests\Api\Account\SignUpValidate2;
+use App\Jobs\SendSMSJob;
 use App\Repositories\Interfaces\IPlayerRepository;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,18 +29,21 @@ class AccountController extends Controller
         $access_token = OAuthHelper::get_access_token($validated['email'], $validated['password']);
         if ($access_token) {
             $player = $this->playerRepository->findByEmail($validated['email']);
+            $code = rand(10000, 99999);
+            $message = 'KAFAKAFAYA SMS KODU '. $code . '.';
+            SendSMSJob::dispatch($player->phone, $message);
             return response()->json([
                 'status' => 'success',
                 'data' => [
                     'access_token' => $access_token,
                     'phone_confirmed' => $player->phone_confirmed,
                 ],
-            ]);
+            ], Response::HTTP_OK);
         } else {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Bilgilerinizi kontrol ederek tekrar giriş yapın.'
-            ]);
+            ], Response::HTTP_BAD_REQUEST);
         }
     }
 
