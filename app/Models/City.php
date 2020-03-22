@@ -14,6 +14,11 @@ class City extends Model
 {
     public $timestamps = false;
 
+    public function districts()
+    {
+        return $this->hasMany(District::class, 'city_id');
+    }
+
     public function __toString()
     {
         return $this->title;

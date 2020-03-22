@@ -20,6 +20,7 @@ class CreatePlayersTable extends Migration
             $table->string('full_name');
             $table->string('nick_name');
             $table->string('phone');
+            $table->string('phone_code', 6)->nullable();
             $table->string('email');
             $table->string('password');
             $table->text('image_url')->nullable();

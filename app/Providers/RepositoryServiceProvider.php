@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Repositories\AstroturfCalendarRepository;
 use App\Repositories\AstroturfRepository;
 use App\Repositories\AstroturfServiceRepository;
+use App\Repositories\CityRepository;
 use App\Repositories\EliminationApplicationRepository;
 use App\Repositories\EliminationLevelRepository;
 use App\Repositories\EliminationMatchRepository;
@@ -14,6 +15,7 @@ use App\Repositories\FacilityUserRepository;
 use App\Repositories\Interfaces\IAstroturfCalendarRepository;
 use App\Repositories\Interfaces\IAstroturfRepository;
 use App\Repositories\Interfaces\IAstroturfServiceRepository;
+use App\Repositories\Interfaces\ICityRepository;
 use App\Repositories\Interfaces\IEliminationApplicationRepository;
 use App\Repositories\Interfaces\IEliminationLevelRepository;
 use App\Repositories\Interfaces\IEliminationMatchRepository;
@@ -49,6 +51,11 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind(
+          ICityRepository::class,
+          CityRepository::class
+        );
+
         $this->app->bind(
           IUserRepository::class,
           UserRepository::class
