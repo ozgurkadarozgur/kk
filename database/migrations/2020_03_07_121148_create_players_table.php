@@ -21,6 +21,7 @@ class CreatePlayersTable extends Migration
             $table->string('nick_name');
             $table->string('phone');
             $table->string('phone_code', 6)->nullable();
+            $table->boolean('phone_confirmed')->default(false);
             $table->string('email');
             $table->string('password');
             $table->text('image_url')->nullable();
