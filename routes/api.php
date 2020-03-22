@@ -35,6 +35,7 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api'
 
     Route::group(['prefix' => 'me'], function () {
         Route::get('/', 'PlayerController@me');
+        Route::get('/verify-phone', 'AccountController@verify_phone');
         Route::get('/teams', 'PlayerController@teams');
         Route::get('/incoming-vs-requests', 'PlayerController@incoming_vs_requests');
         Route::get('/outgoing-vs-requests', 'PlayerController@outgoing_vs_requests');

@@ -9,6 +9,7 @@ use App\Http\Requests\Api\Account\SignInRequest;
 use App\Http\Requests\Api\Account\SignUpRequest;
 use App\Http\Requests\Api\Account\SignUpValidate1;
 use App\Http\Requests\Api\Account\SignUpValidate2;
+use App\Http\Requests\Api\Account\VerifyPhoneRequest;
 use App\Jobs\SendSMSJob;
 use App\Repositories\Interfaces\IPlayerRepository;
 use Illuminate\Http\Request;
@@ -80,6 +81,25 @@ class AccountController extends Controller
         return response()->json([
             'status' => 'success',
         ]);
+    }
+
+    public function verify_phone(VerifyPhoneRequest $request)
+    {
+        $validated = $request->validated();
+
+        $user = $request->user();
+        if ($user->phone_code == $validated['code']) {
+            $user->phone_confirmed = true;
+            $user->save();
+            return response()->json([
+                'status' => 'success',
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Hatalı kod girdiniz.'
+            ], Response::HTTP_BAD_REQUEST);
+        }
     }
 
 }
