@@ -29,9 +29,13 @@ class AccountController extends Controller
         $access_token = OAuthHelper::get_access_token($validated['email'], $validated['password']);
         if ($access_token) {
             $player = $this->playerRepository->findByEmail($validated['email']);
-            $code = rand(10000, 99999);
-            $message = 'KAFAKAFAYA SMS KODU '. $code . '.';
-            SendSMSJob::dispatch($player->phone, $message);
+            if (!$player->phone_confirmed) {
+                $code = $code = rand(100000, 999999);;
+                $player->phone_code = $code;
+                $player->save();
+                $message = 'KAFAKAFAYA SMS KODU '. $code . '.';
+                SendSMSJob::dispatch($player->phone, $message);
+            }
             return response()->json([
                 'status' => 'success',
                 'data' => [
@@ -52,9 +56,6 @@ class AccountController extends Controller
         $validated = $request->validated();
         $player = $this->playerRepository->create($validated);
         if ($player) {
-            $code = $code = rand(100000, 999999);;
-            $player->phone_code = $code;
-            $player->save();
             return response()->json([
                 'status' => 'success'
             ], Response::HTTP_CREATED);
