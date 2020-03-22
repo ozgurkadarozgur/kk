@@ -6,6 +6,8 @@ use App\Helpers\OAuthHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Account\SignInRequest;
 use App\Http\Requests\Api\Account\SignUpRequest;
+use App\Http\Requests\Api\Account\SignUpValidate1;
+use App\Http\Requests\Api\Account\SignUpValidate2;
 use App\Repositories\Interfaces\IPlayerRepository;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,6 +41,16 @@ class AccountController extends Controller
                 'status'=> 'error'
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public function sign_up_validate_1(SignUpValidate1 $request)
+    {
+        $validated = $request->validated();
+    }
+
+    public function sign_up_validate_2(SignUpValidate2 $request)
+    {
+        $validated = $request->validated();
     }
 
 }

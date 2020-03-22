@@ -18,12 +18,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 */
 
-Route::group(['middleware' => 'api', 'prefix' => 'v1', 'namespace' => 'api\v1'], function () {
+Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'api', 'prefix' => 'v1', 'namespace' => 'api\v1'], function () {
     Route::post('/sign-up', 'AccountController@sign_up');
+    Route::post('/sign-up-validate-1', 'AccountController@sign_up_validate_1');
+    Route::post('/sign-up-validate-2', 'AccountController@sign_up_validate_2');
+
     Route::post('/sign-in', 'AccountController@sign_in');
 });
 
-Route::group(['middleware' => 'auth:api', 'prefix' => 'v1', 'namespace' => 'api\v1'], function () {
+Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api', 'prefix' => 'v1', 'namespace' => 'api\v1'], function () {
 
     Route::group(['prefix' => 'me'], function () {
         Route::get('/', 'PlayerController@me');
