@@ -25,8 +25,22 @@ class AccountController extends Controller
     public function sign_in(SignInRequest $request)
     {
         $validated = $request->validated();
-        $response = OAuthHelper::get_access_token($validated['email'], $validated['password']);
-        return $response;
+        $access_token = OAuthHelper::get_access_token($validated['email'], $validated['password']);
+        if ($access_token) {
+            $player = $this->playerRepository->findByEmail($validated['email']);
+            return response()->json([
+                'status' => 'success',
+                'data' => [
+                    'access_token' => $access_token,
+                    'phone_confirmed' => $player->phone_confirmed,
+                ],
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Bilgilerinizi kontrol ederek tekrar giriş yapın.'
+            ]);
+        }
     }
 
     public function sign_up(SignUpRequest $request)
@@ -34,6 +48,9 @@ class AccountController extends Controller
         $validated = $request->validated();
         $player = $this->playerRepository->create($validated);
         if ($player) {
+            $code = $code = rand(100000, 999999);;
+            $player->phone_code = $code;
+            $player->save();
             return response()->json([
                 'status' => 'success'
             ], Response::HTTP_CREATED);

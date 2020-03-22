@@ -17,6 +17,8 @@ interface IPlayerRepository
 {
     public function findById(int $id) : ?Player;
 
+    public function findByEmail(string $email) : ?Player;
+
     public function all($limit) : Collection;
 
     public function paginate(int $count) : LengthAwarePaginator;

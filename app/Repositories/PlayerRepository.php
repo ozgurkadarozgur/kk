@@ -28,6 +28,17 @@ class PlayerRepository implements IPlayerRepository
         }
     }
 
+    public function findByEmail(string $email): ?Player
+    {
+        try {
+            $player = Player::where('email', $email)->first();
+            return $player;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
     public function all($limit = null): Collection
     {
         try {

@@ -16,5 +16,12 @@ class PlayerPositionsTableSeeder extends Seeder
         $position->title = 'Forvet';
         $position->save();
 
+        $position = new PlayerPosition();
+        $position->title = 'Orta Saha';
+        $position->save();
+
+        $position = new PlayerPosition();
+        $position->title = 'Defans';
+        $position->save();
     }
 }
