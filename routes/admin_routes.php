@@ -4,6 +4,10 @@ Auth::routes();
 
 Route::group(['domain' => 'admin.' . env('APP_MAIN_URL'), 'namespace' => 'Admin'], function () {
 
+    Route::post('/reset-password/{token}', 'PlayerAccountController@reset_password')->name('api.player.reset_password');
+    Route::get('/reset-password/{token}', 'PlayerAccountController@reset_password_view')->name('api.player.reset_password_view');
+    Route::get('/reset-password-result/{status}', 'PlayerAccountController@reset_password_result')->name('api.player.reset_password_result');
+
     Route::get('login', 'AuthController@login')->name('admin.auth.login');
     Route::post('login', 'AuthController@login_attempt')->name('admin.auth.login_attempt');
     Route::post('logout', 'AuthController@logout')->name('admin.auth.logout');

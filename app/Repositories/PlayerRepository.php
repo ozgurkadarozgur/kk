@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 
 use App\Models\Player;
+use App\Models\PlayerPasswordReset;
 use App\Repositories\Interfaces\IPlayerRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
@@ -88,4 +89,15 @@ class PlayerRepository implements IPlayerRepository
         }
     }
 
+    public function resetPassword(Player $player, string $new_password): ?Player
+    {
+        try {
+            $player->password = $new_password;
+            $player->save();
+            return $player;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
 }

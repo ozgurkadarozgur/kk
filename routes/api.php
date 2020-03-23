@@ -23,6 +23,8 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'api', 'pr
     Route::post('/sign-up-validate-1', 'AccountController@sign_up_validate_1');
     Route::post('/sign-up-validate-2', 'AccountController@sign_up_validate_2');
 
+    Route::post('/forgot-password', 'AccountController@forgot_password');
+
     Route::post('/sign-in', 'AccountController@sign_in');
 
     Route::get('/cities', 'CityController@index');

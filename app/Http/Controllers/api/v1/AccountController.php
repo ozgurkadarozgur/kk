@@ -5,23 +5,29 @@ namespace App\Http\Controllers\api\v1;
 use App\Helpers\OAuthHelper;
 use App\Helpers\VatanSMS;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Account\ForgotPasswordRequest;
+use App\Http\Requests\Api\Account\ResetPasswordRequest;
 use App\Http\Requests\Api\Account\SignInRequest;
 use App\Http\Requests\Api\Account\SignUpRequest;
 use App\Http\Requests\Api\Account\SignUpValidate1;
 use App\Http\Requests\Api\Account\SignUpValidate2;
 use App\Http\Requests\Api\Account\VerifyPhoneRequest;
 use App\Jobs\SendSMSJob;
+use App\Repositories\Interfaces\IPlayerPasswordResetRepository;
 use App\Repositories\Interfaces\IPlayerRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 
 class AccountController extends Controller
 {
     private $playerRepository;
+    private $playerPasswordResetRepository;
 
-    public function __construct(IPlayerRepository $playerRepository)
+    public function __construct(IPlayerRepository $playerRepository, IPlayerPasswordResetRepository $playerPasswordResetRepository)
     {
         $this->playerRepository = $playerRepository;
+        $this->playerPasswordResetRepository = $playerPasswordResetRepository;
     }
 
     public function sign_in(SignInRequest $request)
@@ -98,6 +104,28 @@ class AccountController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'Hatalı kod girdiniz.'
+            ], Response::HTTP_BAD_REQUEST);
+        }
+    }
+
+    public function forgot_password(ForgotPasswordRequest $request)
+    {
+        $validated = $request->validated();
+        $email = $validated['email'];
+        $token = Str::random(30);
+        $result = $this->playerPasswordResetRepository->createResetPasswordToken($email, $token);
+        if ($result) {
+            $player = $this->playerRepository->findByEmail($email);
+            $url = route('api.player.reset_password_view', $token);
+            $message = 'Şifrenizi değiştirmek için tıklayın '. $url;
+            SendSMSJob::dispatch($player->phone, $message);
+            return response()->json([
+                'status' => 'success',
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Bir hata oluştu lütfen daha sonra deneyin.'
             ], Response::HTTP_BAD_REQUEST);
         }
     }

@@ -10,6 +10,7 @@ namespace App\Repositories\Interfaces;
 
 
 use App\Models\Player;
+use App\Models\PlayerPasswordReset;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
@@ -24,4 +25,6 @@ interface IPlayerRepository
     public function paginate(int $count) : LengthAwarePaginator;
 
     public function create($data) : ?Player;
+
+    public function resetPassword(Player $player, string $new_password) : ?Player;
 }
