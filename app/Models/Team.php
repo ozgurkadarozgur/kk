@@ -39,4 +39,10 @@ class Team extends Model
         return $this->belongsTo(District::class, 'district_id');
     }
 
+    public function average_power()
+    {
+        $avg = $this->members()->avg('power');
+        return (float)sprintf("%.2f", $avg);
+    }
+
 }

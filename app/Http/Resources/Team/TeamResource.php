@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Team;
 
+use App\Http\Resources\TeamMember\TeamMemberResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class TeamResource extends JsonResource
@@ -19,6 +20,10 @@ class TeamResource extends JsonResource
             'title' => $this->title,
             'image_url' => $this->image_url,
             'uniform' => $this->uniform,
+            'city' => $this->city->title,
+            'district' => $this->district->title,
+            'members' => TeamMemberResource::collection($this->members),
+            'average_power' => $this->average_power(),
         ];
     }
 }
