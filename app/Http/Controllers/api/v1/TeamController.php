@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Helpers\CloudinaryHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Team\StoreTeamRequest;
 use App\Http\Resources\Team\TeamCollection;
@@ -63,6 +64,13 @@ class TeamController extends Controller
         $validated['owner_id'] = $user->id;
         $team = $this->teamRepository->create($validated);
         if ($team) {
+            if (isset($validated['image'])) {
+                $upload_result = CloudinaryHelper::upload_image($validated['image'], 'assets');
+                if ($upload_result) {
+                    $team->image_url = $upload_result['url'];
+                    $team->save();
+                }
+            }
             return response()->json([
                 'status' => 'success',
             ], Response::HTTP_CREATED);

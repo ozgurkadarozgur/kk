@@ -27,7 +27,8 @@ class StoreTeamRequest extends FormRequest
             'title' => 'required',
             'uniform' => 'required',
             'city_id' => 'required',
-            'district_id' => 'required'
+            'district_id' => 'required',
+            'image' => 'image|nullable',
         ];
     }
 }
