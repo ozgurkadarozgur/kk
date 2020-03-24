@@ -116,6 +116,11 @@ class TeamMemberController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $member = $this->teamMemberRepository->destroy($id);
+        return response()->json([
+            'status' => 'success',
+            'data' => new TeamMemberResource($member),
+        ]);
+
     }
 }

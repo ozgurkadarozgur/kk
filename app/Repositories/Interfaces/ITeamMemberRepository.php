@@ -19,4 +19,6 @@ interface ITeamMemberRepository
     public function all() : Collection;
 
     public function create($data) : ?TeamMember;
+
+    public function destroy(int $id) : ?TeamMember;
 }

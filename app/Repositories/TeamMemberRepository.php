@@ -53,4 +53,16 @@ class TeamMemberRepository implements ITeamMemberRepository
             return null;
         }
     }
+
+    public function destroy(int $id): ?TeamMember
+    {
+        try {
+            $member = $this->findById($id);
+            $member->delete();
+            return $member;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
 }
