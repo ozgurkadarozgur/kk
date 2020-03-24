@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\UnauthorizedException;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -61,13 +62,13 @@ class Handler extends ExceptionHandler
                 if ($exception instanceof NotFoundHttpException) {
                     return response()->json([
                         'status' => 'url_not_found',
-                    ]);
+                    ], Response::HTTP_NOT_FOUND);
                 }
 
                  if ($exception instanceof AuthenticationException) {
                     return response()->json([
                         'status' => 'unauthenticated',
-                    ]);
+                    ], Response::HTTP_UNAUTHORIZED);
                 }
 
                 if ($exception instanceof MethodNotAllowedHttpException) {
