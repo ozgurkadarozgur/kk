@@ -84,4 +84,15 @@ class TeamRepository implements ITeamRepository
         }
     }
 
+    public function destroy(int $id): ?Team
+    {
+        try {
+            $team = $this->findById($id);
+            $team->delete();
+            return $team;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
 }

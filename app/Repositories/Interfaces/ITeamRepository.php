@@ -24,4 +24,6 @@ interface ITeamRepository
     public function paginate(int $count) : LengthAwarePaginator;
 
     public function create($data) : ?Team;
+
+    public function destroy(int $id) : ?Team;
 }

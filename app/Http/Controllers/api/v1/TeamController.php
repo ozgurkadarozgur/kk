@@ -134,6 +134,16 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $team = $this->teamRepository->destroy($id);
+        if ($team) {
+            return response()->json([
+                'status' => 'success',
+                'data' => new TeamResource($team),
+            ], Response::HTTP_OK);
+        } else {
+            return response()->json([
+                'status' => 'error',
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4056748a-c025-45f5-932a-c4845d40b5fa" name="Default Changelist" comment="" />
+    <list default="true" id="4056748a-c025-45f5-932a-c4845d40b5fa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/ITeamRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/ITeamRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/TeamRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/TeamRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +20,9 @@
     <session id="-719781911">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="29" />
+          <entry key="project.closed" value="30" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.107" value="1" />
           <entry key="project.open.time.2" value="1" />
@@ -37,34 +42,34 @@
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.60" value="1" />
           <entry key="project.open.time.91" value="1" />
-          <entry key="project.opened" value="30" />
+          <entry key="project.opened" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="13" />
-          <entry key="php" value="1222" />
+          <entry key="php" value="1225" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="13" />
           <entry key="Blade" value="267" />
-          <entry key="PHP" value="955" />
+          <entry key="PHP" value="958" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="7" />
           <entry key="env" value="94" />
-          <entry key="php" value="75331" />
+          <entry key="php" value="75520" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="94" />
           <entry key="Blade" value="17371" />
-          <entry key="PHP" value="57959" />
+          <entry key="PHP" value="58148" />
           <entry key="PLAIN_TEXT" value="7" />
           <entry key="SQL" value="1" />
         </counts>
@@ -79,11 +84,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="58" column="55" lean-forward="true" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+            <state relative-caret-position="67">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
               <folding>
                 <element signature="e#37#419#0#PHP" />
                 <element signature="e#420#532#0#PHP" />
@@ -93,37 +98,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Team.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/v1/TeamController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1957">
+              <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/TeamRepository.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="251">
-              <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Repositories/TeamMemberRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/ITeamMemberRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1081">
-              <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+              <caret line="91" column="25" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -170,8 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Helpers/PayfullHelper.php" />
         <option value="$PROJECT_DIR$/routes/payfull_routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Payment/PayfullController.php" />
         <option value="$PROJECT_DIR$/resources/views/payment/payfull_response.blade.php" />
@@ -216,11 +201,13 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/v1/TeamController.php" />
         <option value="$PROJECT_DIR$/resources/views/api/reset_password.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/api/reset_password_result.blade.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Api/TeamMember/DestroyTeamMemberRequest.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Interfaces/ITeamMemberRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/TeamMemberRepository.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/v1/TeamMemberController.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Interfaces/ITeamRepository.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/TeamRepository.php" />
       </list>
     </option>
   </component>
@@ -375,6 +362,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -421,13 +409,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="teammemberreposi&#9;null&#9;null&#10;teammem&#9;null&#9;null&#10;team&#9;null&#9;null&#10;teamres&#9;null&#9;null&#10;create_teams&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_07_165645_create_teams_table.php&#10;teamcontroller&#9;null&#9;null&#10;forgot&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Requests/Api/Account/ForgotPasswordRequest.php&#10;account&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/AccountController.php&#10;admin&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/admin_routes.php&#10;playerpasswo&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/PlayerPasswordResetRepository.php&#10;api&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/api.php&#10;create&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_23_174216_create_player_password_resets_table.php&#10;player&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/PlayerRepository.php&#10;accoun&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/AccountController.php&#10;playerreposit&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/PlayerRepository.php&#10;playerpas&#9;null&#9;null&#10;passwor&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2014_10_12_100000_create_password_resets_table.php&#10;create_player&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_23_174216_create_player_password_resets_table.php&#10;accountco&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/AccountController.php&#10;sendsms&#9;null&#9;null&#10;playerrepo&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/PlayerRepository.php&#10;authser&#9;null&#9;null&#10;playerrepository&#9;null&#9;null&#10;data&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/DatabaseSeeder.php&#10;repositoryse&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Providers/RepositoryServiceProvider.php&#10;playerposition&#9;null&#9;null&#10;c&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_07_121148_create_players_table.php&#10;pla&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Models/Player.php&#10;create_&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_07_121148_create_players_table.php&#10;ast&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/AstroturfController.php&#10;repositoryser&#9;null&#9;null&#10;sign&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Requests/Api/Account/SignUpValidate1.php&#10;cre&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_07_121148_create_players_table.php&#10;s&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Requests/Api/Account/SignUpValidate2.php&#10;payf&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/Admin/PayfullController.php&#10;vsrepo&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/VSRepository.php&#10;vscontroll&#9;null&#9;null&#10;vsre&#9;null&#9;null&#10;eliminationapplication&#9;null&#9;null&#10;leagueapp&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/LeagueApplicationRepository.php&#10;leagueapplication&#9;null&#9;null&#10;vssta&#9;null&#9;null&#10;vs&#9;null&#9;null&#10;facilit&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/facility_routes.php&#10;facili&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/facility_routes.php&#10;leag&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/Admin/LeagueFixtureController.php&#10;facility&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/facility_routes.php&#10;admin_&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/admin_routes.php&#10;authenti&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Middleware/Authenticate.php&#10;redire&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Middleware/RedirectIfAuthenticated.php" />
+    <property name="SearchEverywhereHistoryKey" value="teamrepository&#9;null&#9;null&#10;teamcontroller&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/TeamController.php&#10;teammemberreposi&#9;null&#9;null&#10;teammem&#9;null&#9;null&#10;team&#9;null&#9;null&#10;teamres&#9;null&#9;null&#10;create_teams&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_07_165645_create_teams_table.php&#10;forgot&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Requests/Api/Account/ForgotPasswordRequest.php&#10;account&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/AccountController.php&#10;admin&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/admin_routes.php&#10;playerpasswo&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/PlayerPasswordResetRepository.php&#10;api&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/api.php&#10;create&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_23_174216_create_player_password_resets_table.php&#10;player&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/PlayerRepository.php&#10;accoun&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/AccountController.php&#10;playerreposit&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/PlayerRepository.php&#10;playerpas&#9;null&#9;null&#10;passwor&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2014_10_12_100000_create_password_resets_table.php&#10;create_player&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_23_174216_create_player_password_resets_table.php&#10;accountco&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/AccountController.php&#10;sendsms&#9;null&#9;null&#10;playerrepo&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/PlayerRepository.php&#10;authser&#9;null&#9;null&#10;playerrepository&#9;null&#9;null&#10;data&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/DatabaseSeeder.php&#10;repositoryse&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Providers/RepositoryServiceProvider.php&#10;playerposition&#9;null&#9;null&#10;c&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_07_121148_create_players_table.php&#10;pla&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Models/Player.php&#10;create_&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_07_121148_create_players_table.php&#10;ast&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/AstroturfController.php&#10;repositoryser&#9;null&#9;null&#10;sign&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Requests/Api/Account/SignUpValidate1.php&#10;cre&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_07_121148_create_players_table.php&#10;s&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Requests/Api/Account/SignUpValidate2.php&#10;payf&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/Admin/PayfullController.php&#10;vsrepo&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/VSRepository.php&#10;vscontroll&#9;null&#9;null&#10;vsre&#9;null&#9;null&#10;eliminationapplication&#9;null&#9;null&#10;leagueapp&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/LeagueApplicationRepository.php&#10;leagueapplication&#9;null&#9;null&#10;vssta&#9;null&#9;null&#10;vs&#9;null&#9;null&#10;facilit&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/facility_routes.php&#10;facili&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/facility_routes.php&#10;leag&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/Admin/LeagueFixtureController.php&#10;facility&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/facility_routes.php&#10;admin_&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/admin_routes.php&#10;authenti&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Middleware/Authenticate.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../tenta/hiring-puzzles/io-example/php" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -495,17 +482,19 @@
       <workItem from="1584903245413" duration="14498000" />
       <workItem from="1584984724551" duration="7474000" />
       <workItem from="1584992760269" duration="9487000" />
-      <workItem from="1585045856019" duration="847000" />
+      <workItem from="1585045856019" duration="2181000" />
+      <workItem from="1585051517160" duration="119000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245269000" />
+    <option name="totallyTimeSpent" value="246722000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="27" width="1313" height="741" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24861878" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25256512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -556,20 +545,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/seeds/CitiesTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Player.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_07_121148_create_players_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -843,13 +818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/v1/TeamController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1957">
-          <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/api/reset_password.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -864,34 +832,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1081">
-          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Api/TeamMember/DestroyTeamMemberRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/ITeamMemberRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/TeamMemberRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Api/TeamMember/DestroyTeamMemberRequest.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/v1/TeamMemberController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -899,21 +840,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Team.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="58" column="55" lean-forward="true" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+        <state relative-caret-position="67">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
           <folding>
             <element signature="e#37#419#0#PHP" />
             <element signature="e#420#532#0#PHP" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Team.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/TeamMemberRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/ITeamMemberRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1081">
+          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/v1/TeamController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1957">
+          <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/ITeamRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#130#150#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/TeamRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="91" column="25" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
         </state>
       </provider>
     </entry>

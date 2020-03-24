@@ -117,10 +117,15 @@ class TeamMemberController extends Controller
     public function destroy($id)
     {
         $member = $this->teamMemberRepository->destroy($id);
-        return response()->json([
-            'status' => 'success',
-            'data' => new TeamMemberResource($member),
-        ]);
-
+        if ($member) {
+            return response()->json([
+                'status' => 'success',
+                'data' => new TeamMemberResource($member),
+            ], Response::HTTP_OK);
+        } else {
+            return response()->json([
+                'status' => 'error',
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }
