@@ -23,6 +23,8 @@ class PlayerResource extends JsonResource
             'image_url' => $this->image_url,
             'transfer_status' => $this->transfer_status,
             'skills' => $this->skill_list,
+            'city' => $this->city->title,
+            'district' => $this->district->title,
         ];
     }
 }

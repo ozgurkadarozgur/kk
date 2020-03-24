@@ -72,6 +72,8 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api'
         Route::post('/', 'VSController@vs_request');
         Route::post('/{id}/invited-approve', 'VSController@invited_approve');
         Route::post('/{id}/invited-reject', 'VSController@invited_reject');
+        Route::post('/{id}/inviter-approve', 'VSController@inviter_approve');
+        Route::post('/{id}/inviter-cancel', 'VSController@inviter_cancel');
     });
 
     Route::group(['prefix' => 'eliminations'], function () {
