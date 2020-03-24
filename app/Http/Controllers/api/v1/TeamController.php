@@ -159,7 +159,7 @@ class TeamController extends Controller
             return response()->json([
                 'status' => 'success',
                 'data' => new TeamResource($team),
-            ], Response::HTTP_CREATED);
+            ], Response::HTTP_OK);
         } else {
             return response()->json([
                 'status' => 'error',
