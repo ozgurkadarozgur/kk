@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api\v1;
 
 use App\Helpers\CloudinaryHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Team\SetTeamImageRequest;
 use App\Http\Requests\Api\Team\StoreTeamRequest;
 use App\Http\Resources\Team\TeamCollection;
 use App\Http\Resources\Team\TeamResource;
@@ -145,5 +146,25 @@ class TeamController extends Controller
                 'status' => 'error',
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public function set_image(SetTeamImageRequest $request, $id)
+    {
+        $validated = $request->validated();
+        $team = $this->teamRepository->findById($id);
+        $upload_result = CloudinaryHelper::upload_image($validated['image'], 'assets');
+        if ($upload_result) {
+            $team->image_url = $upload_result['url'];
+            $team->save();
+            return response()->json([
+                'status' => 'success',
+                'data' => new TeamResource($team),
+            ], Response::HTTP_CREATED);
+        } else {
+            return response()->json([
+                'status' => 'error',
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
     }
 }
