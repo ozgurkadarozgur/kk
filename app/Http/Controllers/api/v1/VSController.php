@@ -12,6 +12,7 @@ use App\Models\VSStatus;
 use App\Repositories\Interfaces\IAstroturfRepository;
 use App\Repositories\Interfaces\ITeamRepository;
 use App\Repositories\Interfaces\IVSRepository;
+use App\Repositories\Interfaces\IVSReservationRepository;
 use App\Rules\VS\VSApproveCheckIsPlayerInvited;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,12 +20,14 @@ class VSController extends Controller
 {
 
     private $vsRepository;
+    private $vsReservationRepository;
     private $astroturfRepository;
     private $teamRepository;
 
-    public function __construct(IVSRepository $vsRepository, IAstroturfRepository $astroturfRepository, ITeamRepository $teamRepository)
+    public function __construct(IVSRepository $vsRepository, IVSReservationRepository $vsReservationRepository,IAstroturfRepository $astroturfRepository, ITeamRepository $teamRepository)
     {
         $this->vsRepository = $vsRepository;
+        $this->vsReservationRepository = $vsReservationRepository;
         $this->astroturfRepository = $astroturfRepository;
         $this->teamRepository = $teamRepository;
     }
@@ -108,6 +111,7 @@ class VSController extends Controller
         $team = $this->teamRepository->findById($vs->inviter_team_id);
         $vs = $this->vsRepository->update_status($id, $team->title,VSStatus::INVITER_APPROVED);
         if ($vs) {
+            $this->vsReservationRepository->create($vs);
             return response()->json([
                 'status' => 'success',
                 'data' => $vs->status,
