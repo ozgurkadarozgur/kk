@@ -25,6 +25,7 @@ use App\Repositories\Interfaces\IFacilityUserRepository;
 use App\Repositories\Interfaces\ILeagueApplicationRepository;
 use App\Repositories\Interfaces\ILeagueFixtureRepository;
 use App\Repositories\Interfaces\ILeagueRepository;
+use App\Repositories\Interfaces\IPlayerAstroturfReservationRepository;
 use App\Repositories\Interfaces\IPlayerPasswordResetRepository;
 use App\Repositories\Interfaces\IPlayerPositionRepository;
 use App\Repositories\Interfaces\IPlayerRepository;
@@ -36,6 +37,7 @@ use App\Repositories\Interfaces\IVSRepository;
 use App\Repositories\LeagueApplicationRepository;
 use App\Repositories\LeagueFixtureRepository;
 use App\Repositories\LeagueRepository;
+use App\Repositories\PlayerAstroturfReservationRepository;
 use App\Repositories\PlayerPasswordResetRepository;
 use App\Repositories\PlayerPositionRepository;
 use App\Repositories\PlayerRepository;
@@ -108,6 +110,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
           IPlayerPasswordResetRepository::class,
           PlayerPasswordResetRepository::class
+        );
+
+        $this->app->bind(
+            IPlayerAstroturfReservationRepository::class,
+            PlayerAstroturfReservationRepository::class
         );
 
         $this->app->bind(
