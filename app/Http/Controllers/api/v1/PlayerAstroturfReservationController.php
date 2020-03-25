@@ -21,6 +21,8 @@ class PlayerAstroturfReservationController extends Controller
     public function store(StorePlayerAstroturfReservationRequest $request)
     {
         $validated = $request->validated();
+        $user = $request->user();
+        $validated['player_id'] = $user->id;
         $reservation = $this->playerAstroturfReservationRepository->create($validated);
         if ($reservation) {
             return response()->json([
