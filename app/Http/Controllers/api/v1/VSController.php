@@ -66,6 +66,7 @@ class VSController extends Controller
         if ($vs) {
             return response()->json([
                 'status' => 'success',
+                'data' => $vs->status,
             ], Response::HTTP_OK);
         } else {
             return response()->json([
@@ -84,6 +85,7 @@ class VSController extends Controller
         if ($vs) {
             return response()->json([
                 'status' => 'success',
+                'data' => $vs->status,
             ], Response::HTTP_OK);
         } else {
             return response()->json([
@@ -108,6 +110,7 @@ class VSController extends Controller
         if ($vs) {
             return response()->json([
                 'status' => 'success',
+                'data' => $vs->status,
             ], Response::HTTP_OK);
         } else {
             return response()->json([
@@ -126,6 +129,7 @@ class VSController extends Controller
         if ($vs) {
             return response()->json([
                 'status' => 'success',
+                'data' => $vs->status,
             ], Response::HTTP_OK);
         } else {
             return response()->json([
