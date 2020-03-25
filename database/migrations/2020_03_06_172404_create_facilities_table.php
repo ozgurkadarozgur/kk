@@ -23,7 +23,7 @@ class CreateFacilitiesTable extends Migration
             $table->string('email');
             $table->string('bank_account');
             $table->boolean('is_active')->default(false);
-            $table->text('image_url');
+            $table->text('image_url')->nullable();
             $table->timestamps();
 
             $table->foreign('city_id')
