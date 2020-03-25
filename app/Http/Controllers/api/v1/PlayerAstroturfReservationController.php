@@ -18,11 +18,12 @@ class PlayerAstroturfReservationController extends Controller
         $this->playerAstroturfReservationRepository = $playerAstroturfReservationRepository;
     }
 
-    public function store(StorePlayerAstroturfReservationRequest $request)
+    public function store(StorePlayerAstroturfReservationRequest $request, $id)
     {
         $validated = $request->validated();
         $user = $request->user();
         $validated['player_id'] = $user->id;
+        $validated['astroturf_id'] = $id;
         $reservation = $this->playerAstroturfReservationRepository->create($validated);
         if ($reservation) {
             return response()->json([

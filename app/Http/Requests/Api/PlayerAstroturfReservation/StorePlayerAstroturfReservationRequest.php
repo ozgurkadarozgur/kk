@@ -24,9 +24,13 @@ class StorePlayerAstroturfReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            'astroturf_id' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
+            'card.holderName' => 'required',
+            'card.cardNumber' => 'required',
+            'card.expireMonth' => 'required',
+            'card.expireYear' => 'required',
+            'card.cvc' => 'required',
         ];
     }
 }
