@@ -44,7 +44,7 @@ class PayfullController extends Controller
                         break;
                     }
                     case PayfullHelper::PROCESS_TYPE_ELIMINATION_APPLICATION : {
-                        $elimination_id = $meta->league_id;
+                        $elimination_id = $meta->elimination_id;
                         $db_data = [
                             'player_id' => $meta->player_id,
                             'team_id' => $meta->team_id,

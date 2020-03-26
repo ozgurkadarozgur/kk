@@ -34,7 +34,7 @@ class PlayerAstroturfReservationController extends Controller
         ];
         $meta = json_encode($meta);
         try {
-            $response = PayfullHelper::request($user, $card, '0.01',$meta);
+            $response = PayfullHelper::request($user, $card, '0.01', $meta);
             //dd($response);
             return response()->json($response);
             //return $response->data;

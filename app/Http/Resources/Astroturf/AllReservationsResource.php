@@ -22,6 +22,7 @@ class AllReservationsResource extends JsonResource
             'start_time' => Carbon::parse($this->start_date)->format('H:i'),
             'end' => $this->end_date,
             'end_time' => Carbon::parse($this->end_date)->format('H:i'),
+            'reservation' => true,
         ];
     }
 }
