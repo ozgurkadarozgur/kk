@@ -36,6 +36,7 @@ class PlayerAstroturfReservationController extends Controller
             dd($response);
             //return response()->json($response);
         } catch (\Exception $ex) {
+            dd($ex);
             return response()->json([
                 'status' => 'error',
                 'file' => $ex->getFile(),
