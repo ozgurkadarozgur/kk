@@ -26,7 +26,7 @@ class PayfullHelper
         '09' => 'Yanlış CVC numarası.'
     ];
 
-    public static function request($apiUser, $card, $price, $meta)
+    public static function request($apiUser, array $card, $price, $meta)
     {
 
         //API isteğini göndereceğiniz Endpoint URL değeri
@@ -44,11 +44,11 @@ class PayfullHelper
             //"return_url"=>"http://admin.kk.app-xr.com/payment-response",
             "return_url"=> route('payment.payfull.handle_response'),
             "total"=> $price,
-            "cc_name"=> $card->holderName,
-            "cc_number"=> $card->cardNumber,
-            "cc_month"=> $card->expireMonth,
-            "cc_year"=> $card->expireYear,
-            "cc_cvc"=> $card->cvc,
+            "cc_name"=> $card['holderName'],
+            "cc_number"=> $card['cardNumber'],
+            "cc_month"=> $card['expireMonth'],
+            "cc_year"=> $card['expireYear'],
+            "cc_cvc"=> $card['cvc'],
             "currency"=>"TRY",
             "installments"=>"1",
             "language"=>"tr",

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Payment;
 
 use App\Helpers\PayfullHelper;
 use App\Http\Controllers\Controller;
+use App\Models\VSStatus;
 use App\Repositories\Interfaces\IEliminationApplicationRepository;
 use App\Repositories\Interfaces\ILeagueApplicationRepository;
+use App\Repositories\Interfaces\IPlayerAstroturfReservationRepository;
 use App\Repositories\Interfaces\IVSRepository;
 
 class PayfullController extends Controller
@@ -13,12 +15,14 @@ class PayfullController extends Controller
     private $leagueApplicationRepository;
     private $eliminationApplicationRepository;
     private $vsRepository;
+    private $playerAstroturfReservationRepository;
 
-    public function __construct(ILeagueApplicationRepository $leagueApplicationRepository, IEliminationApplicationRepository $eliminationApplicationRepository, IVSRepository $vsRepository)
+    public function __construct(ILeagueApplicationRepository $leagueApplicationRepository, IEliminationApplicationRepository $eliminationApplicationRepository, IVSRepository $vsRepository, IPlayerAstroturfReservationRepository $playerAstroturfReservationRepository)
     {
         $this->leagueApplicationRepository = $leagueApplicationRepository;
         $this->eliminationApplicationRepository = $eliminationApplicationRepository;
         $this->vsRepository = $vsRepository;
+        $this->playerAstroturfReservationRepository = $playerAstroturfReservationRepository;
     }
 
     public function handle_response()
@@ -63,6 +67,13 @@ class PayfullController extends Controller
                         break;
                     }
                     case PayfullHelper::PROCESS_TYPE_ASTROTURF_RESERVATION : {
+                        $data = [
+                            'player_id' => $meta->player_id,
+                            'astroturf_id' => $meta->astroturf_id,
+                            'start_date' => $meta->start_date,
+                            'end_date' => $meta->end_date,
+                        ];
+                        $this->playerAstroturfReservationRepository->create($data);
                         break;
                     }
                     case PayfullHelper::PROCESS_TYPE_E_COMMERCE_BUY_PRODUCT : {

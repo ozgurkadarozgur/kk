@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Helpers\PayfullHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\PlayerAstroturfReservation\StorePlayerAstroturfReservationRequest;
 use App\Repositories\Interfaces\IPlayerAstroturfReservationRepository;
@@ -22,9 +23,26 @@ class PlayerAstroturfReservationController extends Controller
     {
         $validated = $request->validated();
         $user = $request->user();
-        $validated['player_id'] = $user->id;
-        $validated['astroturf_id'] = $id;
-        $reservation = $this->playerAstroturfReservationRepository->create($validated);
+        $card = $validated['card'];
+
+        $meta = [
+            'player_id' => $user->id,
+            'astroturf_id' => $id,
+            'start_date' => $validated['start_date'],
+            'end_date' => $validated['end_date'],
+        ];
+        try {
+            $response = PayfullHelper::request($user, $card, '0.01',$meta);
+            return response()->json($response);
+        } catch (\Exception $ex) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $ex->getMessage()
+            ]);
+        }
+
+        /*
+         $reservation = $this->playerAstroturfReservationRepository->create($validated);
         if ($reservation) {
             return response()->json([
                 'status' => 'success',
@@ -34,5 +52,6 @@ class PlayerAstroturfReservationController extends Controller
                 'status' => 'error',
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+         */
     }
 }
