@@ -32,7 +32,7 @@ class PayfullController extends Controller
         if ($data['status'] == 1) {
             if ($data['confirm_action'] == 0) {
                 $meta = json_decode($data['passive_data']);
-                $process_type = $meta->processType;
+                $process_type = $meta->process_type;
                 switch ($process_type) {
                     case PayfullHelper::PROCESS_TYPE_LEAGUE_APPLICATION : {
                         $league_id = $meta->league_id;

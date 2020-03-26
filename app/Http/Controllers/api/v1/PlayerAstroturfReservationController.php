@@ -30,6 +30,7 @@ class PlayerAstroturfReservationController extends Controller
             'astroturf_id' => $id,
             'start_date' => $validated['start_date'],
             'end_date' => $validated['end_date'],
+            'process_type' => PayfullHelper::PROCESS_TYPE_ASTROTURF_RESERVATION,
         ];
         $meta = json_encode($meta);
         try {
