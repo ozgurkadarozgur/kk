@@ -61,6 +61,7 @@ class PayfullHelper
 //"customer_tc"=>"12590326514",
             "passive_data"=> $meta,
         ];
+        dd($data);
         $arr=[];
         foreach($data as $param_key=>$param_val){$arr[strtolower($param_key)]=$param_val;}
         ksort($arr);
