@@ -66,7 +66,8 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api'
     Route::group(['prefix' => 'astroturfs'], function () {
         Route::get('/', 'AstroturfController@index');
         Route::get('/{id}', 'AstroturfController@show');
-        Route::post('/{id}/reservation', 'PlayerAstroturfReservationController@store');
+        Route::post('/{id}/reservations', 'PlayerAstroturfReservationController@store');
+        Route::get('/{id}/reservations/{date}', 'AstroturfController@reservations');
     });
 
     Route::group(['prefix' => 'vs'], function () {

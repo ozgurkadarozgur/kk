@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class PlayerAstroturfReservation
@@ -16,7 +17,4 @@ use Illuminate\Database\Eloquent\Model;
 class PlayerAstroturfReservation extends Model
 {
     protected $table = 'player_astroturf_reservations';
-
-
-
 }

@@ -56,4 +56,11 @@ class Astroturf extends Model
         return $this->hasMany(AstroturfCalendar::class, 'astroturf_id');
     }
 
+    public function all_reservations($date)
+    {
+        $query = "select player_astroturf_reservations.id, player_astroturf_reservations.start_date, player_astroturf_reservations.end_date from player_astroturf_reservations          
+          where date(player_astroturf_reservations.start_date) = '$date' and player_astroturf_reservations.astroturf_id = $this->id";
+        return DB::select($query);
+    }
+
 }

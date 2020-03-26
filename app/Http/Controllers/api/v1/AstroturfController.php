@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Astroturf\AllReservationsResource;
 use App\Http\Resources\Astroturf\AstroturfCollection;
 use App\Http\Resources\Astroturf\AstroturfResource;
 use App\Repositories\Interfaces\IAstroturfRepository;
@@ -47,6 +48,16 @@ class AstroturfController extends Controller
                 'status' => 'error',
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public function reservations($id, $date)
+    {
+        $astroturf = $this->astroturfRepository->findById($id);
+        $all_reservations = collect($astroturf->all_reservations($date));
+        return response()->json([
+           'status' => 'success',
+           'data' => AllReservationsResource::collection($all_reservations)
+        ]);
     }
 
 }
