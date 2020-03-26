@@ -31,6 +31,7 @@ class PlayerAstroturfReservationController extends Controller
             'start_date' => $validated['start_date'],
             'end_date' => $validated['end_date'],
         ];
+        $meta = json_encode($meta);
         try {
             $response = PayfullHelper::request($user, $card, '0.01',$meta);
             dd($response);
