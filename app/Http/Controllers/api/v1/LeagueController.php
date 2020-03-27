@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\League\ApplyForLeagueRequest;
 use App\Http\Resources\League\LeagueCollection;
 use App\Http\Resources\League\LeagueResource;
+use App\Http\Resources\LeagueFixture\LeagueFixtureResource;
+use App\Http\Resources\LeagueFixture\LeagueWeekResource;
+use App\Models\League;
+use App\Models\LeagueFixture;
 use App\Repositories\Interfaces\ILeagueApplicationRepository;
 use App\Repositories\Interfaces\ILeagueRepository;
 use Illuminate\Http\Request;
@@ -89,6 +93,32 @@ class LeagueController extends Controller
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
         */
+    }
+
+    public function fixture($id)
+    {
+        $league = $this->leagueRepository->findById($id);
+        $fixture = $league->fixture()->with(['team1', 'team2', 'astroturf'])->get();
+        $fixture_data = collect($fixture)->groupBy('week_number', true);
+        $arr = [];
+        foreach ($fixture_data as $week => $item) {
+            array_push($arr, [
+               'id' => $week,
+               'week' => $week,
+               'fixture' => LeagueFixtureResource::collection($item)
+            ]);
+        }
+        return response()->json([
+            'status' => 'success',
+            'data' => $arr
+        ]);
+
+
+        //dd();
+
+        //return response()->json(LeagueFixtureResource::collection($fixture_data));
+        //$grouped = $weeks->groupBy('week_number')->toArray();
+        //dd($grouped);
     }
 
 }

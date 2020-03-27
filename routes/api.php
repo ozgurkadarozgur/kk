@@ -88,6 +88,7 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api'
         Route::get('/', 'LeagueController@index');
         Route::post('/{id}/apply', 'LeagueController@apply');
         Route::get('/{id}', 'LeagueController@show');
+        Route::get('/{id}/fixture', 'LeagueController@fixture');
     });
 
 });

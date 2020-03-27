@@ -3,6 +3,7 @@
 namespace App\Http\Resources\League;
 
 use App\Http\Resources\LeagueApplication\LeagueApplicationResource;
+use App\Http\Resources\LeagueFixture\LeagueWeekResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class LeagueResource extends JsonResource
