@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Elimination;
 
 use App\Http\Resources\EliminationApplication\EliminationApplicationResource;
+use App\Http\Resources\EliminationLevel\EliminationLevelResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class EliminationResource extends JsonResource
@@ -27,6 +28,7 @@ class EliminationResource extends JsonResource
             'cost' => $this->cost,
             'awards' => json_decode($this->awards, true),
             'applications' => EliminationApplicationResource::collection($this->applications),
+            'levels' => EliminationLevelResource::collection($this->levels),
         ];
     }
 }
