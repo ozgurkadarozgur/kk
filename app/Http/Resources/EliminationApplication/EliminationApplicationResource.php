@@ -18,7 +18,8 @@ class EliminationApplicationResource extends JsonResource
             'id' => $this->id,
             'team' => [
                 'id' => $this->team->id,
-                'title' => $this->team->title
+                'title' => $this->team->title,
+                'power' => 90,
             ],
         ];
     }
