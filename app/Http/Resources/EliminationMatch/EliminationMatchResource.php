@@ -26,7 +26,7 @@ class EliminationMatchResource extends JsonResource
                 'title' => $this->team2->title,
                 'score' => $this->team2_score,
             ],
-            'astroturf' => $this->when($this->astroturf != null, [
+            'astroturf' => $this->when($this->astroturf_id != null, [
                 'id' => $this->astroturf->id,
                 'title' => $this->astroturf->title,
             ]),
