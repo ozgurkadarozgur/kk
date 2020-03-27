@@ -12,7 +12,7 @@ class LeagueApplicationsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 20; $i < 21; $i++) {
+        for ($i = 5; $i < 12; $i++) {
             $team = \App\Models\Team::find($i);
             $application = new LeagueApplication();
             $application->league_id = 1;

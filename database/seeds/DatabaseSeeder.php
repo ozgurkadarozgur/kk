@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             //PlayersTableSeeder::class,
             //TeamsTableSeeder::class,
             //EliminationApplicationsTableSeeder::class,
+            //LeagueApplicationsTableSeeder::class,
         ]);
     }
 }

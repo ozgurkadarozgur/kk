@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\League;
 
+use App\Http\Resources\LeagueApplication\LeagueApplicationResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class LeagueResource extends JsonResource
@@ -27,6 +28,7 @@ class LeagueResource extends JsonResource
             'min_player_count' => $this->min_player_count,
             'cost' => $this->cost,
             'awards' => json_decode($this->awards, true),
+            'applications' => $this->when(request('id') != null, LeagueApplicationResource::collection($this->applications)),
         ];
     }
 }
