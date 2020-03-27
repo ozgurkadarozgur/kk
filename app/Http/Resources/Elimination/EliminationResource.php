@@ -11,7 +11,7 @@ class EliminationResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return array
      */
     public function toArray($request)
@@ -27,8 +27,8 @@ class EliminationResource extends JsonResource
             'min_player_count' => $this->min_player_count,
             'cost' => $this->cost,
             'awards' => json_decode($this->awards, true),
-            'applications' => EliminationApplicationResource::collection($this->applications),
-            'levels' => EliminationLevelResource::collection($this->levels),
+            'applications' => $this->when(request('id') != null, EliminationApplicationResource::collection($this->applications)),
+            'levels' => $this->when(request('id') != null, EliminationLevelResource::collection($this->levels)),
         ];
     }
 }
