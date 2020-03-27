@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Helpers\PayfullHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\League\ApplyForLeagueRequest;
 use App\Http\Resources\League\LeagueCollection;
@@ -56,7 +57,27 @@ class LeagueController extends Controller
     {
         $validated = $request->validated();
         $user = $request->user();
-        $validated['player_id'] = $user->id;
+        $card = $validated['card'];
+
+        $meta = [
+            'player_id' => $user->id,
+            'league_id' => $id,
+            'team_id' => $validated['team_id'],
+            'process_type' => PayfullHelper::PROCESS_TYPE_LEAGUE_APPLICATION,
+        ];
+        $meta = json_encode($meta);
+        try {
+            $response = PayfullHelper::request($user, $card, '0.01', $meta);
+            return response()->json($response);
+        } catch (\Exception $ex) {
+            return response()->json([
+                'status' => 'error',
+                'file' => $ex->getFile(),
+                'line' => $ex->getLine(),
+                'message' => $ex->getMessage()
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+        /*
         $application = $this->leagueApplicationRepository->apply($id, $validated);
         if ($application) {
             return response()->json([
@@ -67,6 +88,7 @@ class LeagueController extends Controller
                 'status' => 'error',
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+        */
     }
 
 }
