@@ -194,7 +194,16 @@ class EliminationController extends Controller
 
             return redirect()->route('admin.elimination.matches', $id);
         } else {
-            return 'over';
+            //return 'over';
+            try {
+                $current_level->is_over = true;
+                $current_level->save();
+                return redirect()->route('admin.elimination.matches', $id);
+            } catch (\Exception $ex) {
+                DB::rollBack();
+                if (env('APP_DEBUG')) dd($ex);
+                return redirect()->back();
+            }
         }
     }
 
