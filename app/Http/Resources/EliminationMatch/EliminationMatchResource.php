@@ -9,7 +9,7 @@ class EliminationMatchResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return array
      */
     public function toArray($request)
@@ -26,10 +26,10 @@ class EliminationMatchResource extends JsonResource
                 'title' => $this->team2->title,
                 'score' => $this->team2_score,
             ],
-            'astroturf' => $this->when($this->astroturf_id != null, [
+            'astroturf' => ($this->astroturf_id != null) ? [
                 'id' => $this->astroturf->id,
                 'title' => $this->astroturf->title,
-            ]),
+            ] : null,
             'start_date' => $this->start_date,
             'start_time' => $this->start_time,
         ];
