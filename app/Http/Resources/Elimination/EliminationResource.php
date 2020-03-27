@@ -18,6 +18,7 @@ class EliminationResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'type' => 'Eleme',
             'facility' => $this->facility->title,
             'title' => $this->title,
             'image_url' => $this->image_url,
