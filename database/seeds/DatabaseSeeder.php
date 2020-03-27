@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
             //DistrictsTableSeeder::class,
             //PlayerPositionsTableSeeder::class,
             //VSStatusTableSeeder::class,
+            //PlayersTableSeeder::class,
+            //TeamsTableSeeder::class,
+            //EliminationApplicationsTableSeeder::class,
         ]);
     }
 }

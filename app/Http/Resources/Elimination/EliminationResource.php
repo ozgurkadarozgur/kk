@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Elimination;
 
+use App\Http\Resources\EliminationApplication\EliminationApplicationResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class EliminationResource extends JsonResource
@@ -25,6 +26,7 @@ class EliminationResource extends JsonResource
             'min_player_count' => $this->min_player_count,
             'cost' => $this->cost,
             'awards' => json_decode($this->awards, true),
+            'applications' => EliminationApplicationResource::collection($this->applications),
         ];
     }
 }

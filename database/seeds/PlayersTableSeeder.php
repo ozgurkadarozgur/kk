@@ -12,17 +12,17 @@ class PlayersTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 16; $i++) {
+        for ($i = 10; $i < 17; $i++) {
             $player = new Player();
             $player->city_id = 1;
             $player->district_id = 1;
-            $player->full_name = 'Player1';
-            $player->nick_name = 'Player1_nick_name';
-            $player->phone = '5554443320';
-            $player->email = 'player1@gmail.com';
-            $player->password = '12345678';
+            $player->full_name = 'Player'.$i;
+            $player->nick_name = 'Player'.$i.'_nick_name';
+            $player->phone = '55544433'.$i;
+            $player->email = 'player'.$i.'@gmail.com';
+            $player->password = bcrypt('12345678');
             $player->transfer_status = true;
-            $player->skills = [1,2];
+            $player->skills = json_encode([1,2]);
             $player->phone_code = 123456;
             $player->phone_confirmed = true;
             $player->save();
