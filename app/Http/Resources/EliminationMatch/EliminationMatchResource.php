@@ -19,11 +19,13 @@ class EliminationMatchResource extends JsonResource
             'team1' => [
                 'id' => $this->team1->id,
                 'title' => $this->team1->title,
+                'uniform' => $this->uniform,
                 'score' => $this->team1_score,
             ],
             'team2' => [
                 'id' => $this->team2->id,
                 'title' => $this->team2->title,
+                'uniform' => $this->uniform,
                 'score' => $this->team2_score,
             ],
             'astroturf' => ($this->astroturf_id != null) ? [
