@@ -45,7 +45,7 @@ class PlayerAstroturfReservationController extends Controller
                 'file' => $ex->getFile(),
                 'line' => $ex->getLine(),
                 'message' => $ex->getMessage()
-            ]);
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
         /*

@@ -76,7 +76,7 @@ class EliminationController extends Controller
                 'file' => $ex->getFile(),
                 'line' => $ex->getLine(),
                 'message' => $ex->getMessage()
-            ]);
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
         /*
         $application = $this->eliminationApplicationRepository->apply($id, $validated);
