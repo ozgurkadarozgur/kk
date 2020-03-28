@@ -29,6 +29,7 @@ class EliminationResource extends JsonResource
             'cost' => $this->cost,
             'awards' => json_decode($this->awards, true),
             'applied' => $this->applied($request->user()->id),
+            'allow_application_for_limit' => $this->allow_application_for_limit(),
             'applications' => $this->when(request('id') != null, EliminationApplicationResource::collection($this->applications)),
             'levels' => $this->when(request('id') != null, EliminationLevelResource::collection($this->levels)),
         ];

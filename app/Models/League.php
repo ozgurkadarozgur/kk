@@ -63,4 +63,10 @@ class League extends Model
         return ($application) ? true : false;
     }
 
+    public function allow_application_for_limit()
+    {
+        $application_count = $this->applications()->count();
+        return ($application_count < $this->max_team_count) ? false : true;
+    }
+
 }
