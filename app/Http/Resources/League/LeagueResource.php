@@ -28,7 +28,7 @@ class LeagueResource extends JsonResource
             'max_team_count' => $this->max_team_count,
             'min_player_count' => $this->min_player_count,
             'cost' => $this->cost,
-            'applied' => $this->applied(),
+            'applied' => $this->applied($request->user()->id),
             'awards' => json_decode($this->awards, true),
             'applications' => $this->when(request('id') != null, LeagueApplicationResource::collection($this->applications)),
         ];
