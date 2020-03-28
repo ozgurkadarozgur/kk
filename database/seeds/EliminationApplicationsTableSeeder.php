@@ -12,10 +12,10 @@ class EliminationApplicationsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 20; $i < 21; $i++) {
+        for ($i = 5; $i < 9; $i++) {
             $team = \App\Models\Team::find($i);
             $application = new EliminationApplication();
-            $application->elimination_id = 2;
+            $application->elimination_id = 3;
             $application->team_id = $i;
             $application->player_id = $team->owner_id;
             $application->save();
