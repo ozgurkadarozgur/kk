@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4056748a-c025-45f5-932a-c4845d40b5fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/Models/Elimination.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Elimination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/League.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/League.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,28 +53,28 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="17" />
-          <entry key="php" value="1385" />
+          <entry key="php" value="1387" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="17" />
           <entry key="Blade" value="268" />
-          <entry key="PHP" value="1117" />
+          <entry key="PHP" value="1119" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="7" />
           <entry key="env" value="99" />
-          <entry key="php" value="82191" />
+          <entry key="php" value="82289" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="99" />
           <entry key="Blade" value="17371" />
-          <entry key="PHP" value="64819" />
+          <entry key="PHP" value="64917" />
           <entry key="PLAIN_TEXT" value="7" />
           <entry key="SQL" value="1" />
         </counts>
@@ -91,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/League.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+            <state relative-caret-position="313">
+              <caret line="68" column="74" selection-start-line="68" selection-start-column="74" selection-end-line="68" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -100,32 +101,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Models/Elimination.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="51" column="8" lean-forward="true" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Resources/League/LeagueResource.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="26" column="42" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-              <folding>
-                <element signature="e#45#112#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Resources/Elimination/EliminationResource.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="25" column="42" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="42" />
-              <folding>
-                <element signature="e#50#127#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="198">
+              <caret line="51" column="74" selection-start-line="51" selection-start-column="74" selection-end-line="51" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -219,9 +196,9 @@
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/LeagueFixture/LeagueWeekResource.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/v1/LeagueController.php" />
-        <option value="$PROJECT_DIR$/app/Models/League.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/League/LeagueResource.php" />
         <option value="$PROJECT_DIR$/app/Http/Resources/Elimination/EliminationResource.php" />
+        <option value="$PROJECT_DIR$/app/Models/League.php" />
         <option value="$PROJECT_DIR$/app/Models/Elimination.php" />
       </list>
     </option>
@@ -476,12 +453,12 @@
       <workItem from="1585221096456" duration="6354000" />
       <workItem from="1585255118951" duration="5162000" />
       <workItem from="1585311689937" duration="15116000" />
-      <workItem from="1585397345003" duration="2090000" />
+      <workItem from="1585397345003" duration="2459000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="289867000" />
+    <option name="totallyTimeSpent" value="290236000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="27" width="1313" height="741" extended-state="6" />
@@ -858,10 +835,20 @@
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_11_102803_create_elimination_applications_table.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Resources/Elimination/EliminationResource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="29" column="57" lean-forward="true" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+          <folding>
+            <element signature="e#50#127#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Resources/League/LeagueResource.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="26" column="42" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+        <state relative-caret-position="83">
+          <caret line="24" column="46" lean-forward="true" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
           <folding>
             <element signature="e#45#112#0#PHP" expanded="true" />
           </folding>
@@ -870,25 +857,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/League.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Resources/Elimination/EliminationResource.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="25" column="42" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="42" />
-          <folding>
-            <element signature="e#50#127#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="313">
+          <caret line="68" column="74" selection-start-line="68" selection-start-column="74" selection-end-line="68" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Elimination.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="51" column="8" lean-forward="true" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+        <state relative-caret-position="198">
+          <caret line="51" column="74" selection-start-line="51" selection-start-column="74" selection-end-line="51" selection-end-column="74" />
         </state>
       </provider>
     </entry>
