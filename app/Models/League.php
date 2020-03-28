@@ -57,4 +57,10 @@ class League extends Model
             ->get();
     }
 
+    public function applied()
+    {
+        $application = $this->applications()->where('player_id', '=', $this->id)->first();
+        return ($application) ? true : false;
+    }
+
 }

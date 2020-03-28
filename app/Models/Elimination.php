@@ -40,4 +40,10 @@ class Elimination extends Model
         return $this->hasMany(EliminationLevel::class, 'elimination_id')->orderBy('order', 'asc');
     }
 
+    public function applied()
+    {
+        $application = $this->applications()->where('player_id', '=', $this->id)->first();
+        return ($application) ? true : false;
+    }
+
 }
