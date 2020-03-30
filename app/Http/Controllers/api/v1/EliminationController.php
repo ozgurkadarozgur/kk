@@ -108,7 +108,7 @@ class EliminationController extends Controller
             } else {
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'direction_id property is required in filter object',
+                    'message' => 'district_id property is required in filter object',
                 ], Response::HTTP_UNPROCESSABLE_ENTITY);
             }
         } else {

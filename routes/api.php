@@ -82,7 +82,7 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api'
         Route::get('/', 'EliminationController@index');
         Route::post('/{id}/apply', 'EliminationController@apply');
         Route::get('/{id}', 'EliminationController@show');
-        Route::post('/filter-n-sort', 'EliminationController@filter_n_sort')->name('api.eliminations.filter-n-sort');
+        Route::post('/filter-n-sort', 'EliminationController@filter_n_sort');
     });
 
     Route::group(['prefix' => 'leagues'], function () {
@@ -90,6 +90,7 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api'
         Route::post('/{id}/apply', 'LeagueController@apply');
         Route::get('/{id}', 'LeagueController@show');
         Route::get('/{id}/fixture', 'LeagueController@fixture');
+        Route::post('/filter-n-sort', 'LeagueController@filter_n_sort');
     });
 
 });

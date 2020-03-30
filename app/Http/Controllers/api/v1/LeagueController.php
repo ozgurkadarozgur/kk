@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Helpers\CollectionHelper;
 use App\Helpers\PayfullHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\League\ApplyForLeagueRequest;
+use App\Http\Requests\Api\League\FilterAndSortLeagueRequest;
 use App\Http\Resources\League\LeagueCollection;
 use App\Http\Resources\League\LeagueResource;
 use App\Http\Resources\LeagueFixture\LeagueFixtureResource;
@@ -119,6 +121,52 @@ class LeagueController extends Controller
         //return response()->json(LeagueFixtureResource::collection($fixture_data));
         //$grouped = $weeks->groupBy('week_number')->toArray();
         //dd($grouped);
+    }
+
+    public function filter_n_sort(FilterAndSortLeagueRequest $request)
+    {
+        $validated = $request->validated();
+        $result = null;
+        if (isset($validated['filter'])) {
+            $filter = $validated['filter'];
+            if (isset($filter['district_id'])){
+                $district_id = $filter['district_id'];
+                $result = $this->leagueRepository->findByDistrictId($district_id);
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'district_id property is required in filter object',
+                ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+        } else {
+            $result = $this->leagueRepository->all();
+        }
+
+        if (isset($validated['sort'])) {
+            $sort = $validated['sort'];
+            if (isset($sort['type']) and isset($sort['direction'])) {
+                $type = $sort['type'];
+                $direction = $sort['direction'];
+                $result = $result->sortBy($type, SORT_REGULAR, ($direction == "desc"));
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'type and direction properties are required in sort object',
+                ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+        }
+
+        if ($result) {
+            $result = CollectionHelper::paginate($result, 50);
+            return response()->json([
+                'data' => new LeagueCollection($result),
+                'status' => 'success',
+            ], Response::HTTP_OK);
+        } else {
+            return response()->json([
+                'status' => 'error',
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
