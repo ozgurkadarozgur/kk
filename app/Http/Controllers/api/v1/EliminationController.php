@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Helpers\CollectionHelper;
 use App\Helpers\PayfullHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Elimination\ApplyForEliminationRequest;
+use App\Http\Requests\Api\Elimination\FilterAndSortEliminationRequest;
 use App\Http\Resources\Elimination\EliminationCollection;
 use App\Http\Resources\Elimination\EliminationResource;
 use App\Repositories\Interfaces\IEliminationApplicationRepository;
 use App\Repositories\Interfaces\IEliminationRepository;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+use function PHPSTORM_META\type;
 use Symfony\Component\HttpFoundation\Response;
 
 class EliminationController extends Controller
@@ -90,6 +94,52 @@ class EliminationController extends Controller
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
         */
+    }
+
+    public function filter_n_sort(FilterAndSortEliminationRequest $request)
+    {
+        $validated = $request->validated();
+        $result = null;
+        if (isset($validated['filter'])) {
+            $filter = $validated['filter'];
+            if (isset($filter['district_id'])){
+                $district_id = $filter['district_id'];
+                $result = $this->eliminationRepository->findByDistrictId($district_id);
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'direction_id property is required in filter object',
+                ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+        } else {
+            $result = $this->eliminationRepository->all();
+        }
+
+        if (isset($validated['sort'])) {
+            $sort = $validated['sort'];
+            if (isset($sort['type']) and isset($sort['direction'])) {
+                $type = $sort['type'];
+                $direction = $sort['direction'];
+                $result = $result->sortBy($type, SORT_REGULAR, ($direction == "desc"));
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'type and direction properties are required in sort object',
+                ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+        }
+
+        if ($result) {
+            $result = CollectionHelper::paginate($result, 50);
+            return response()->json([
+                'data' => new EliminationCollection($result),
+                'status' => 'success',
+            ], Response::HTTP_OK);
+        } else {
+            return response()->json([
+                'status' => 'error',
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
