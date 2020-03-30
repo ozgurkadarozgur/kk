@@ -28,6 +28,20 @@ class LeagueRepository implements ILeagueRepository
         }
     }
 
+    public function findByCityId($city_id): Collection
+    {
+        try {
+            $leagues = League::join('facilities', 'facilities.id', '=', 'leagues.facility_id')
+                ->where('facilities.city_id', '=', $city_id)
+                ->select('leagues.*')
+                ->get();
+            return $leagues;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
     public function findByDistrictId($district_id): Collection
     {
         try {

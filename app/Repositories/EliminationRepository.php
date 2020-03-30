@@ -42,6 +42,20 @@ class EliminationRepository implements IEliminationRepository
         }
     }
 
+    public function findByCityId($city_id): Collection
+    {
+        try {
+            $eliminations = Elimination::join('facilities', 'facilities.id', '=', 'eliminations.facility_id')
+                ->where('facilities.city_id', '=', $city_id)
+                ->select('eliminations.*')
+                ->get();
+            return $eliminations;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
     public function findByDistrictId($district_id): Collection
     {
         try {

@@ -129,15 +129,22 @@ class LeagueController extends Controller
         $result = null;
         if (isset($validated['filter'])) {
             $filter = $validated['filter'];
-            if (isset($filter['district_id'])){
-                $district_id = $filter['district_id'];
-                $result = $this->leagueRepository->findByDistrictId($district_id);
+            if (isset($filter['city_id']) or isset($filter['district_id'])){
+                if (isset($filter['district_id'])){
+                    $district_id = $filter['district_id'];
+                    $result = $this->leagueRepository->findByDistrictId($district_id);
+                }
+                if (isset($filter['city_id'])){
+                    $city_id = $filter['city_id'];
+                    $result = $this->leagueRepository->findByCityId($city_id);
+                }
             } else {
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'district_id property is required in filter object',
+                    'message' => 'city_id property or district_id property is required in filter object',
                 ], Response::HTTP_UNPROCESSABLE_ENTITY);
             }
+
         } else {
             $result = $this->leagueRepository->all();
         }
