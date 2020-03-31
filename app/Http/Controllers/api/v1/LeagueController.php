@@ -11,6 +11,7 @@ use App\Http\Resources\League\LeagueCollection;
 use App\Http\Resources\League\LeagueResource;
 use App\Http\Resources\LeagueFixture\LeagueFixtureResource;
 use App\Http\Resources\LeagueFixture\LeagueWeekResource;
+use App\Http\Resources\LeagueStandings\LeagueStandingsResource;
 use App\Models\League;
 use App\Models\LeagueFixture;
 use App\Repositories\Interfaces\ILeagueApplicationRepository;
@@ -167,6 +168,21 @@ class LeagueController extends Controller
             $result = CollectionHelper::paginate($result, 50);
             return response()->json([
                 'data' => new LeagueCollection($result),
+                'status' => 'success',
+            ], Response::HTTP_OK);
+        } else {
+            return response()->json([
+                'status' => 'error',
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function standings($id)
+    {
+        $standings = $this->leagueRepository->standings($id);
+        if ($standings) {
+            return response()->json([
+                'data' => LeagueStandingsResource::collection($standings),
                 'status' => 'success',
             ], Response::HTTP_OK);
         } else {

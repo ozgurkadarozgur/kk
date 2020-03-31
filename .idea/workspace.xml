@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4056748a-c025-45f5-932a-c4845d40b5fa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/EliminationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/EliminationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/LeagueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/LeagueController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/EliminationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/EliminationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/IEliminationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/IEliminationRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/Interfaces/ILeagueRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/ILeagueRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/LeagueRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/LeagueRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +21,7 @@
     <session id="-719781911">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="40" />
+          <entry key="project.closed" value="41" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.10" value="1" />
@@ -36,7 +34,7 @@
           <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.40" value="2" />
           <entry key="project.open.time.41" value="1" />
-          <entry key="project.open.time.42" value="1" />
+          <entry key="project.open.time.42" value="2" />
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.47" value="1" />
@@ -53,34 +51,34 @@
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.60" value="1" />
           <entry key="project.open.time.91" value="1" />
-          <entry key="project.opened" value="41" />
+          <entry key="project.opened" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="19" />
-          <entry key="php" value="1423" />
+          <entry key="php" value="1432" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key=".env file" value="19" />
           <entry key="Blade" value="268" />
-          <entry key="PHP" value="1155" />
+          <entry key="PHP" value="1164" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="7" />
           <entry key="env" value="100" />
-          <entry key="php" value="84405" />
+          <entry key="php" value="85112" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="100" />
           <entry key="Blade" value="17371" />
-          <entry key="PHP" value="67033" />
+          <entry key="PHP" value="67740" />
           <entry key="PLAIN_TEXT" value="7" />
           <entry key="SQL" value="1" />
         </counts>
@@ -95,35 +93,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/v1/EliminationController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="112" column="17" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
-              <folding>
-                <element signature="e#47#80#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/v1/LeagueController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="136" column="15" lean-forward="true" selection-start-line="136" selection-start-column="15" selection-end-line="139" selection-end-column="17" />
-              <folding>
-                <element signature="e#47#80#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="334">
+              <caret line="92" column="67" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/v1/LeagueController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="184" column="62" selection-start-line="184" selection-start-column="62" selection-end-line="184" selection-end-column="62" />
+              <folding>
+                <element signature="e#47#80#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Resources/LeagueStandings/LeagueStandingsResource.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/LeagueRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -170,7 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2020_03_06_172404_create_facilities_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Api/VS/InvitedRejectRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Api/VS/InviterCancelRequest.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_03_25_190849_create_vs_reservations_table.php" />
@@ -214,13 +217,14 @@
         <option value="$PROJECT_DIR$/app/Http/Requests/Api/Elimination/FilterAndSortEliminationRequest.php" />
         <option value="$PROJECT_DIR$/app/Helpers/CollectionHelper.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/Api/League/FilterAndSortLeagueRequest.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/Interfaces/ILeagueRepository.php" />
-        <option value="$PROJECT_DIR$/app/Repositories/LeagueRepository.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/api/v1/LeagueController.php" />
         <option value="$PROJECT_DIR$/app/Repositories/Interfaces/IEliminationRepository.php" />
         <option value="$PROJECT_DIR$/app/Repositories/EliminationRepository.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/v1/EliminationController.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/Interfaces/ILeagueRepository.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Repositories/LeagueRepository.php" />
+        <option value="$PROJECT_DIR$/app/Http/Resources/LeagueStandings/LeagueStandingsResource.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/api/v1/LeagueController.php" />
       </list>
     </option>
   </component>
@@ -399,24 +403,15 @@
               <item name="kk_app" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Requests" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kk_app" type="b2602c69:ProjectViewProjectNode" />
               <item name="kk_app" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Requests" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="kk_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="kk_app" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Requests" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-              <item name="League" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="LeagueStandings" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -425,7 +420,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="leag&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/LeagueController.php&#10;eliminationcon&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/EliminationController.php&#10;eliminationrepo&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/EliminationRepository.php&#10;league&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/LeagueRepository.php&#10;api&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/api.php&#10;leaguecontroller&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/LeagueController.php&#10;leaguerepo&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/LeagueRepository.php&#10;eliminationcont&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/EliminationController.php&#10;ap&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/api.php&#10;eliminationreposito&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/EliminationRepository.php&#10;leaguerepositor&#9;null&#9;null&#10;api.&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/api.php&#10;create_&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_10_121420_create_eliminations_table.php&#10;create_eliminations&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_10_121420_create_eliminations_table.php&#10;eliminationrepository&#9;null&#9;null&#10;eliminationcontroller&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/EliminationController.php&#10;data&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/DatabaseSeeder.php&#10;.env&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/.env&#10;leagueres&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/League/LeagueResource.php&#10;eliminationre&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/Elimination/EliminationResource.php&#10;eliminationapplicationtable&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/EliminationApplicationsTableSeeder.php&#10;elimination&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Models/Elimination.php&#10;eliminatio&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/Elimination/EliminationResource.php&#10;leagueresource&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/League/LeagueResource.php&#10;eliminationresource&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/Elimination/EliminationResource.php&#10;createeli&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_11_102803_create_elimination_applications_table.php&#10;leaguereso&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/League/LeagueResource.php&#10;leaguecont&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/LeagueController.php&#10;leagueresourc&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/League/LeagueResource.php&#10;leaguecontro&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/LeagueController.php&#10;leaguefix&#9;null&#9;null&#10;eliminationreso&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/Elimination/EliminationResource.php&#10;leagueapplic&#9;null&#9;null&#10;databas&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/DatabaseSeeder.php&#10;.e&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/.env&#10;leagueapplicat&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/LeagueApplicationsTableSeeder.php&#10;pa&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/Payment/PayfullController.php&#10;eli&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/Elimination/EliminationResource.php&#10;payfullcon&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/Payment/PayfullController.php&#10;leagueco&#9;null&#9;null&#10;leaguec&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/Admin/LeagueController.php&#10;eliminationappli&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/EliminationApplicationsTableSeeder.php&#10;leagueapplica&#9;null&#9;null&#10;leaguecon&#9;null&#9;null&#10;eliminationcontroll&#9;null&#9;null&#10;eliminationlevel&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Models/EliminationLevel.php&#10;eliminationle&#9;null&#9;null&#10;team&#9;null&#9;null&#10;teamsta&#9;null&#9;null&#10;playersta&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/PlayersTableSeeder.php" />
+    <property name="SearchEverywhereHistoryKey" value="leaguerepo&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/LeagueRepository.php&#10;leaguecontroller&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/LeagueController.php&#10;api&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/api.php&#10;leaguereposi&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/LeagueRepository.php&#10;eliminationrepos&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/EliminationRepository.php&#10;leag&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/LeagueController.php&#10;eliminationcon&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/EliminationController.php&#10;eliminationrepo&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/EliminationRepository.php&#10;league&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/LeagueRepository.php&#10;eliminationcont&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/EliminationController.php&#10;ap&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/api.php&#10;eliminationreposito&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Repositories/EliminationRepository.php&#10;leaguerepositor&#9;null&#9;null&#10;api.&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/routes/api.php&#10;create_&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_10_121420_create_eliminations_table.php&#10;create_eliminations&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_10_121420_create_eliminations_table.php&#10;eliminationrepository&#9;null&#9;null&#10;eliminationcontroller&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/EliminationController.php&#10;data&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/DatabaseSeeder.php&#10;.env&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/.env&#10;leagueres&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/League/LeagueResource.php&#10;eliminationre&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/Elimination/EliminationResource.php&#10;eliminationapplicationtable&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/EliminationApplicationsTableSeeder.php&#10;elimination&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Models/Elimination.php&#10;eliminatio&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/Elimination/EliminationResource.php&#10;leagueresource&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/League/LeagueResource.php&#10;eliminationresource&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/Elimination/EliminationResource.php&#10;createeli&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/migrations/2020_03_11_102803_create_elimination_applications_table.php&#10;leaguereso&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/League/LeagueResource.php&#10;leaguecont&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/LeagueController.php&#10;leagueresourc&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/League/LeagueResource.php&#10;leaguecontro&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/api/v1/LeagueController.php&#10;leaguefix&#9;null&#9;null&#10;eliminationreso&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/Elimination/EliminationResource.php&#10;leagueapplic&#9;null&#9;null&#10;databas&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/DatabaseSeeder.php&#10;.e&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/.env&#10;leagueapplicat&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/LeagueApplicationsTableSeeder.php&#10;pa&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/Payment/PayfullController.php&#10;eli&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Resources/Elimination/EliminationResource.php&#10;payfullcon&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/Payment/PayfullController.php&#10;leagueco&#9;null&#9;null&#10;leaguec&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Http/Controllers/Admin/LeagueController.php&#10;eliminationappli&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/database/seeds/EliminationApplicationsTableSeeder.php&#10;leagueapplica&#9;null&#9;null&#10;leaguecon&#9;null&#9;null&#10;eliminationcontroll&#9;null&#9;null&#10;eliminationlevel&#9;FILE&#9;file:///home/ozgur/Desktop/workspace/laravel-workspace/redo/kk_app/app/Models/EliminationLevel.php&#10;eliminationle&#9;null&#9;null&#10;team&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../tenta/hiring-puzzles/io-example/php" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -506,18 +501,19 @@
       <workItem from="1585311689937" duration="15116000" />
       <workItem from="1585397345003" duration="4830000" />
       <workItem from="1585574102807" duration="7284000" />
-      <workItem from="1585588128356" duration="2415000" />
+      <workItem from="1585588128356" duration="3113000" />
+      <workItem from="1585663562474" duration="828000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302306000" />
+    <option name="totallyTimeSpent" value="303832000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="27" width="1313" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24782951" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16101027" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -532,7 +528,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32952693" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.22913256" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.22913256" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -568,13 +564,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/payfull_routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -764,13 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Resources/LeagueFixture/LeagueWeekResource.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_11_102803_create_elimination_applications_table.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -857,23 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#114#149#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/ILeagueRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="19" column="56" lean-forward="true" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/LeagueRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -886,32 +851,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/EliminationRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+        <state relative-caret-position="150">
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/v1/EliminationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/v1/LeagueController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="136" column="15" lean-forward="true" selection-start-line="136" selection-start-column="15" selection-end-line="139" selection-end-column="17" />
+        <state relative-caret-position="127">
+          <caret line="113" column="20" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="20" />
           <folding>
             <element signature="e#47#80#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/v1/EliminationController.php">
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Interfaces/ILeagueRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="112" column="17" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
+        <state relative-caret-position="230">
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="92" column="67" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/LeagueRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Resources/LeagueFixture/LeagueWeekResource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Resources/LeagueStandings/LeagueStandingsResource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/v1/LeagueController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="184" column="62" selection-start-line="184" selection-start-column="62" selection-end-line="184" selection-end-column="62" />
           <folding>
             <element signature="e#47#80#0#PHP" expanded="true" />
           </folding>

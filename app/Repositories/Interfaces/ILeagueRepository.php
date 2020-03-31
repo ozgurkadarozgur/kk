@@ -21,6 +21,8 @@ interface ILeagueRepository
 
     public function findByDistrictId($district_id) : Collection;
 
+    public function standings(int $id) : Collection;
+
     public function all() : Collection;
 
     public function paginate(int $count) : LengthAwarePaginator;

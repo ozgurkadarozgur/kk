@@ -13,6 +13,7 @@ use App\Models\League;
 use App\Repositories\Interfaces\ILeagueRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class LeagueRepository implements ILeagueRepository
 {
@@ -50,6 +51,18 @@ class LeagueRepository implements ILeagueRepository
                 ->select('leagues.*')
                 ->get();
             return $leagues;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
+    public function standings(int $id): Collection
+    {
+        try {
+            $query = "select * from league_standings(?);";
+            $standings = DB::select($query, [$id]);
+            return collect($standings);
         } catch (\Exception $ex) {
             if (env('APP_DEBUG')) dd($ex);
             return null;

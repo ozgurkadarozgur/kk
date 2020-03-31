@@ -91,6 +91,7 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api'
         Route::get('/{id}', 'LeagueController@show');
         Route::get('/{id}/fixture', 'LeagueController@fixture');
         Route::post('/filter-n-sort', 'LeagueController@filter_n_sort');
+        Route::get('/{id}/standings', 'LeagueController@standings');
     });
 
 });
