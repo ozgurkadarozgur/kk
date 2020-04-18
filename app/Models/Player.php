@@ -64,4 +64,24 @@ class Player extends Authenticatable
         }
     }
 
+    public function eliminations()
+    {
+        $ids = $this->hasMany(EliminationApplication::class, 'player_id')
+            ->join('eliminations', 'eliminations.id', '=', 'elimination_applications.elimination_id')
+            ->select('eliminations.id')
+            ->pluck('id');
+
+        return Elimination::find($ids);
+    }
+
+    public function leagues()
+    {
+        $ids = $this->hasMany(LeagueApplication::class, 'player_id')
+            ->join('leagues', 'leagues.id', '=', 'league_applications.league_id')
+            ->select('leagues.id')
+            ->pluck('id');
+
+        return League::find($ids);
+    }
+
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api\v1;
 use App\Helpers\ApiResponseHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Player\StorePlayerRequest;
+use App\Http\Resources\ParticipatedTournaments\ParticipatedTournamentsResource;
 use App\Http\Resources\Player\PlayerCollection;
 use App\Http\Resources\Player\PlayerResource;
 use App\Http\Resources\Team\TeamResource;
@@ -90,6 +91,15 @@ class PlayerController extends Controller
         $outgoing_vs_requests = $this->vsRepository->outgoing_vs_requests_paginate($user->id,50);
         return response()->json([
             'data' => new VSCollection($outgoing_vs_requests),
+            'status' => 'success',
+        ], Response::HTTP_OK);
+    }
+
+    public function tournaments(Request $request)
+    {
+        $user = $request->user();
+        return response()->json([
+            'data' => new ParticipatedTournamentsResource($user),
             'status' => 'success',
         ], Response::HTTP_OK);
     }
