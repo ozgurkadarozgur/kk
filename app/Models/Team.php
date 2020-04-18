@@ -49,8 +49,12 @@ class Team extends Model
 
     public function top_players()
     {
-        $top_players = TeamMember::find(json_decode($this->top_players));
-        return $top_players;
+        if ($this->top_players != null) {
+            $top_players = TeamMember::find(json_decode($this->top_players));
+            return $top_players;
+        } else {
+            return [];
+        }
     }
 
 }

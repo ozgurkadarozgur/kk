@@ -17,6 +17,10 @@ interface IAstroturfRepository
 {
     public function findById(int $id) : ?Astroturf;
 
+    public function findByCityId(int $id) : Collection;
+
+    public function findByDistrictId(int $id) : Collection;
+
     public function all() : Collection;
 
     public function paginate(int $count) : LengthAwarePaginator;

@@ -28,6 +28,28 @@ class AstroturfRepository implements IAstroturfRepository
         }
     }
 
+    public function findByCityId(int $id): Collection
+    {
+        try {
+            $astroturfs = Astroturf::where('city_id', $id)->get();
+            return $astroturfs;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
+    public function findByDistrictId(int $id): Collection
+    {
+        try {
+            $astroturfs = Astroturf::where('district_id', $id)->get();
+            return $astroturfs;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
     public function all(): Collection
     {
         try {
