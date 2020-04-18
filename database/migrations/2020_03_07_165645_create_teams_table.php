@@ -22,6 +22,8 @@ class CreateTeamsTable extends Migration
             $table->boolean('is_active')->default(true);
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('district_id');
+            $table->string('lineup')->nullable();
+            $table->json('top_players')->nullable();
             $table->timestamps();
 
             $table->foreign('owner_id')

@@ -19,6 +19,10 @@ interface ITeamRepository
 
     public function findByIdList(array $id_list) : Collection;
 
+    public function setLineup(int $id, $data) : ?Team;
+
+    public function setTopPlayers(int $id, $data) : ?Team;
+
     public function all($limit) : Collection;
 
     public function paginate(int $count) : LengthAwarePaginator;

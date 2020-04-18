@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property $city_id
  * @property $district_id
  * @property $is_active
+ * @property $lineup
+ * @property $top_players
  */
 class Team extends Model
 {
@@ -43,6 +45,12 @@ class Team extends Model
     {
         $avg = $this->members()->avg('power');
         return (float)sprintf("%.2f", $avg);
+    }
+
+    public function top_players()
+    {
+        $top_players = TeamMember::find(json_decode($this->top_players));
+        return $top_players;
     }
 
 }

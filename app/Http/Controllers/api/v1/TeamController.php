@@ -5,6 +5,8 @@ namespace App\Http\Controllers\api\v1;
 use App\Helpers\CloudinaryHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Team\SetTeamImageRequest;
+use App\Http\Requests\Api\Team\SetTeamLineupRequest;
+use App\Http\Requests\Api\Team\SetTeamTopPlayersRequest;
 use App\Http\Requests\Api\Team\StoreTeamRequest;
 use App\Http\Resources\Team\TeamCollection;
 use App\Http\Resources\Team\TeamResource;
@@ -165,6 +167,37 @@ class TeamController extends Controller
                 'status' => 'error',
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
 
+    public function set_lineup(SetTeamLineupRequest $request, $id)
+    {
+        $validated = $request->validated();
+        $team = $this->teamRepository->setLineup($id, $validated['lineup']);
+        if ($team) {
+            return response()->json([
+                'data' => new TeamResource($team),
+                'status' => 'success',
+            ], Response::HTTP_OK);
+        } else {
+            return response()->json([
+                'status' => 'error',
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function set_top_players(SetTeamTopPlayersRequest $request, $id)
+    {
+        $validated = $request->validated();
+        $team = $this->teamRepository->setTopPlayers($id, $validated['top_players']);
+        if ($team) {
+            return response()->json([
+                'data' => new TeamResource($team),
+                'status' => 'success',
+            ], Response::HTTP_OK);
+        } else {
+            return response()->json([
+                'status' => 'error',
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }

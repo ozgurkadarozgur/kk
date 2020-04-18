@@ -54,6 +54,8 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api'
         Route::get('/{id}', 'TeamController@show');
         Route::delete('/{id}', 'TeamController@destroy');
         Route::post('/{id}/set-image', 'TeamController@set_image');
+        Route::post('/{id}/set-lineup', 'TeamController@set_lineup');
+        Route::post('/{id}/set-top-players', 'TeamController@set_top_players');
     });
 
     Route::group(['prefix' => 'teams/{id}/members'], function () {

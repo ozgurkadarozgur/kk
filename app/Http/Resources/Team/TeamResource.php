@@ -18,6 +18,8 @@ class TeamResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'lineup' => $this->lineup,
+            'top_players' => TeamMemberResource::collection($this->top_players()),
             'image_url' => $this->image_url,
             'uniform' => $this->uniform,
             'city' => $this->city->title,

@@ -95,4 +95,30 @@ class TeamRepository implements ITeamRepository
             return null;
         }
     }
+
+    public function setLineup(int $id, $data): ?Team
+    {
+        try {
+            $team = $this->findById($id);
+            $team->lineup = $data;
+            $team->save();
+            return $team;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
+    public function setTopPlayers(int $id, $data): ?Team
+    {
+        try {
+            $team = $this->findById($id);
+            $team->top_players = $data;
+            $team->save();
+            return $team;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
 }
