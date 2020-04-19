@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Resources\EliminationApplication\EliminationApplicationResource;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -43,7 +44,17 @@ class Elimination extends Model
     public function applied($player_id)
     {
         $application = $this->applications()->where('player_id', '=', $player_id)->first();
-        return ($application) ? true : false;
+        //return ($application) ? true : false;
+        if ($application) {
+            return [
+                'status' => true,
+                'info' => new EliminationApplicationResource($application),
+            ];
+        } else {
+            return [
+                'status' => false,
+            ];
+        }
     }
 
     public function allow_application_for_limit()
