@@ -51,10 +51,11 @@ class OrderRepository implements IOrderRepository
             $order->save();
 
             foreach ($data['items'] as $item) {
+                $product = Product::find($item->id);
                 $order->items()->create([
-                    'product_id' => $item,
-                    'quantity' => $item['quantity'],
-                    'price' => $item['price'],
+                    'product_id' => $item->id,
+                    'quantity' => $item->quantity,
+                    'price' => $product->price,
                 ]);
             }
             DB::commit();

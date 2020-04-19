@@ -74,7 +74,6 @@ class ProductRepository implements IProductRepository
                 $product = Product::find($item["id"]);
                 $total += $product->price * $item["quantity"];
             }
-            dd($total);
             return $total;
         } catch (\Exception $ex) {
             if (env('APP_DEBUG')) dd($ex);
