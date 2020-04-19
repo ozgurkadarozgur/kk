@@ -86,6 +86,7 @@ class PayfullController extends Controller
                             'address' => $meta->address,
                             'items' => $meta->products,
                         ];
+                        dd($db_data);
                         $this->orderRepository->create($db_data);
                         break;
                     }
