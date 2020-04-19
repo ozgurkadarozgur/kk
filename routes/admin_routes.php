@@ -93,4 +93,24 @@ Route::group(['domain' => 'admin.' . env('APP_MAIN_URL'), 'namespace' => 'Admin'
         Route::patch('/{id}', 'LeagueFixtureController@update_partial')->name('admin.league.fixture.update');
     });
 
+    Route::group(['prefix' => 'categories'], function () {
+        Route::get('/', 'CategoryController@index')->name('admin.category.index');
+        Route::get('/create', 'CategoryController@create')->name('admin.category.create');
+        Route::post('/', 'CategoryController@store')->name('admin.category.store');
+        Route::get('/{id}', 'CategoryController@show')->name('admin.category.show');
+        Route::get('/{id}/edit', 'CategoryController@edit')->name('admin.category.edit');
+        Route::patch('/{id}/update', 'CategoryController@update')->name('admin.category.update');
+        Route::delete('/{id}', 'CategoryController@destroy')->name('admin.category.destroy');
+    });
+
+    Route::group(['prefix' => 'products'], function () {
+        Route::get('/', 'ProductController@index')->name('admin.product.index');
+        Route::get('/create', 'ProductController@create')->name('admin.product.create');
+        Route::post('/', 'ProductController@store')->name('admin.product.store');
+        Route::get('/{id}', 'ProductController@show')->name('admin.product.show');
+        Route::get('/{id}/edit', 'ProductController@edit')->name('admin.product.edit');
+        Route::patch('/{id}/update', 'ProductController@update')->name('admin.product.update');
+        Route::delete('/{id}', 'ProductController@destroy')->name('admin.product.destroy');
+    });
+
 });

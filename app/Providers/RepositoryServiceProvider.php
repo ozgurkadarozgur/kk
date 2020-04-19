@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Repositories\AstroturfCalendarRepository;
 use App\Repositories\AstroturfRepository;
 use App\Repositories\AstroturfServiceRepository;
+use App\Repositories\CategoryRepository;
 use App\Repositories\CityRepository;
 use App\Repositories\EliminationApplicationRepository;
 use App\Repositories\EliminationLevelRepository;
@@ -15,6 +16,7 @@ use App\Repositories\FacilityUserRepository;
 use App\Repositories\Interfaces\IAstroturfCalendarRepository;
 use App\Repositories\Interfaces\IAstroturfRepository;
 use App\Repositories\Interfaces\IAstroturfServiceRepository;
+use App\Repositories\Interfaces\ICategoryRepository;
 use App\Repositories\Interfaces\ICityRepository;
 use App\Repositories\Interfaces\IEliminationApplicationRepository;
 use App\Repositories\Interfaces\IEliminationLevelRepository;
@@ -25,11 +27,13 @@ use App\Repositories\Interfaces\IFacilityUserRepository;
 use App\Repositories\Interfaces\ILeagueApplicationRepository;
 use App\Repositories\Interfaces\ILeagueFixtureRepository;
 use App\Repositories\Interfaces\ILeagueRepository;
+use App\Repositories\Interfaces\IOrderRepository;
 use App\Repositories\Interfaces\IPlayerAstroturfReservationRepository;
 use App\Repositories\Interfaces\IPlayerPasswordResetRepository;
 use App\Repositories\Interfaces\IPlayerPositionRepository;
 use App\Repositories\Interfaces\IPlayerRepository;
 use App\Repositories\Interfaces\IPlayerSkillRepository;
+use App\Repositories\Interfaces\IProductRepository;
 use App\Repositories\Interfaces\ITeamMemberRepository;
 use App\Repositories\Interfaces\ITeamRepository;
 use App\Repositories\Interfaces\IUserRepository;
@@ -37,11 +41,13 @@ use App\Repositories\Interfaces\IVSRepository;
 use App\Repositories\LeagueApplicationRepository;
 use App\Repositories\LeagueFixtureRepository;
 use App\Repositories\LeagueRepository;
+use App\Repositories\OrderRepository;
 use App\Repositories\PlayerAstroturfReservationRepository;
 use App\Repositories\PlayerPasswordResetRepository;
 use App\Repositories\PlayerPositionRepository;
 use App\Repositories\PlayerRepository;
 use App\Repositories\PlayerSkillRepository;
+use App\Repositories\ProductRepository;
 use App\Repositories\TeamMemberRepository;
 use App\Repositories\TeamRepository;
 use App\Repositories\UserRepository;
@@ -165,6 +171,21 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
           ILeagueFixtureRepository::class,
           LeagueFixtureRepository::class
+        );
+
+        $this->app->bind(
+            ICategoryRepository::class,
+            CategoryRepository::class
+        );
+
+        $this->app->bind(
+          IProductRepository::class,
+          ProductRepository::class
+        );
+
+        $this->app->bind(
+          IOrderRepository::class,
+          OrderRepository::class
         );
 
     }

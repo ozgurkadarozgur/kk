@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\VSStatus;
 use App\Repositories\Interfaces\IEliminationApplicationRepository;
 use App\Repositories\Interfaces\ILeagueApplicationRepository;
+use App\Repositories\Interfaces\IOrderRepository;
 use App\Repositories\Interfaces\IPlayerAstroturfReservationRepository;
 use App\Repositories\Interfaces\IVSRepository;
 
@@ -16,13 +17,15 @@ class PayfullController extends Controller
     private $eliminationApplicationRepository;
     private $vsRepository;
     private $playerAstroturfReservationRepository;
+    private $orderRepository;
 
-    public function __construct(ILeagueApplicationRepository $leagueApplicationRepository, IEliminationApplicationRepository $eliminationApplicationRepository, IVSRepository $vsRepository, IPlayerAstroturfReservationRepository $playerAstroturfReservationRepository)
+    public function __construct(ILeagueApplicationRepository $leagueApplicationRepository, IEliminationApplicationRepository $eliminationApplicationRepository, IVSRepository $vsRepository, IPlayerAstroturfReservationRepository $playerAstroturfReservationRepository, IOrderRepository $orderRepository)
     {
         $this->leagueApplicationRepository = $leagueApplicationRepository;
         $this->eliminationApplicationRepository = $eliminationApplicationRepository;
         $this->vsRepository = $vsRepository;
         $this->playerAstroturfReservationRepository = $playerAstroturfReservationRepository;
+        $this->orderRepository = $orderRepository;
     }
 
     public function handle_response()
@@ -77,6 +80,13 @@ class PayfullController extends Controller
                         break;
                     }
                     case PayfullHelper::PROCESS_TYPE_E_COMMERCE_BUY_PRODUCT : {
+                        $db_data = [
+                            'user_id' => $meta->player_id,
+                            'total' => $data['total'],
+                            'address' => $meta->address,
+                            'items' => $meta->products,
+                        ];
+                        $this->orderRepository->create($db_data);
                         break;
                     }
                     default: break;

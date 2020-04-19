@@ -98,4 +98,14 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api'
         Route::get('/{id}/standings', 'LeagueController@standings');
     });
 
+    Route::group(['prefix' => 'categories'], function () {
+        Route::get('/', 'CategoryController@index');
+        Route::get('/{id}', 'CategoryController@show');
+    });
+
+    Route::group(['prefix' => 'products'], function () {
+        Route::post('/buy', 'ProductController@buy');
+        Route::get('/{id}', 'ProductController@show');
+    });
+
 });
