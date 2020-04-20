@@ -54,8 +54,8 @@ class ProductController extends Controller
         $meta = json_encode($meta);
         try {
             $response = PayfullHelper::request($user, $card, '0.01', $meta);
-            //return response()->json($response);
-            return $response->data;
+            return response()->json($response);
+            //return $response->data;
         } catch (\Exception $ex) {
             return response()->json([
                 'status' => 'error',
