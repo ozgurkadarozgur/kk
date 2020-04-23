@@ -53,7 +53,7 @@ class Team extends Model
             $top_players = TeamMember::find(json_decode($this->top_players));
             return $top_players;
         } else {
-            return [];
+            return collect([]);
         }
     }
 
