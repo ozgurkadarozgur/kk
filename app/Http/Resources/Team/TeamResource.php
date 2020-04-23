@@ -17,6 +17,7 @@ class TeamResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'has_invited_for_vs' => $request->user()->hasInvitedTemForVs($this->id),
             'title' => $this->title,
             'lineup' => $this->lineup,
             'top_players' => TeamMemberResource::collection($this->top_players()),

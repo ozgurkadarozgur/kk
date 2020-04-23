@@ -40,6 +40,7 @@ use App\Repositories\Interfaces\ITeamMemberRepository;
 use App\Repositories\Interfaces\ITeamRepository;
 use App\Repositories\Interfaces\IUserRepository;
 use App\Repositories\Interfaces\IVSRepository;
+use App\Repositories\Interfaces\IVSReservationRepository;
 use App\Repositories\LeagueApplicationRepository;
 use App\Repositories\LeagueFixtureRepository;
 use App\Repositories\LeagueRepository;
@@ -54,6 +55,7 @@ use App\Repositories\TeamMemberRepository;
 use App\Repositories\TeamRepository;
 use App\Repositories\UserRepository;
 use App\Repositories\VSRepository;
+use App\Repositories\VSReservationRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -193,6 +195,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
           IAstroturfGalleryRepository::class,
           AstroturfGalleryRepository::class
+        );
+
+        $this->app->bind(
+          IVSReservationRepository::class,
+          VSReservationRepository::class
         );
     }
 

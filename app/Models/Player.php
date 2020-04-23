@@ -84,4 +84,12 @@ class Player extends Authenticatable
         return League::find($ids);
     }
 
+    public function hasInvitedTemForVs($teamId)
+    {
+        $outgoing_requests = $this->outgoing_vs_requests()->pluck('invited_team_id')->toArray();
+
+        if (in_array($teamId, $outgoing_requests )) return true;
+        else return false;
+    }
+
 }
