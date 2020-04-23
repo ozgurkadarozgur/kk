@@ -35,6 +35,7 @@ Route::group(['domain' => 'admin.' . env('APP_MAIN_URL'), 'namespace' => 'Admin'
         Route::post('/{id}/calendar', 'AstroturfController@store_calendar')->name('admin.astroturf.calendar.store');
         Route::delete('/{id}/calendar', 'AstroturfController@destroy_calendar')->name('admin.astroturf.calendar.destroy');
         Route::delete('/{id}/subscribed-calendar', 'AstroturfController@destroy_subscribed_calendar')->name('admin.astroturf.subscribed-calendar.destroy');
+        Route::post('/{id}/gallery', 'AstroturfController@store_gallery_item')->name('admin.astroturf.gallery.store');
     });
 
     Route::group(['prefix' => 'player-skills'], function (){

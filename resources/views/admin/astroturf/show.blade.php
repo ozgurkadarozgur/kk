@@ -26,6 +26,7 @@
 
 @section('content')
     @include('admin.astroturf.modal.create_calendar_modal')
+    @include('admin.astroturf.modal.create_gallery_item_modal')
     {{ $errors }}
     <div class="row">
         <div class="col-md-12">
@@ -34,6 +35,7 @@
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a class="nav-link active" href="#reservation" data-toggle="tab">Rezervasyon</a></li>
                         <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#gallery" data-toggle="tab">Galeri</a></li>
                     </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body">
@@ -132,6 +134,26 @@
                             </form>
                         </div>
                         <!-- /.tab-pane -->
+
+                        <div class="tab-pane" id="gallery">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-gallery-item-modal">
+                                        Yeni Ekle
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                @foreach($astroturf->gallery as $item)
+                                    <div class="col-sm-2">
+                                        <a href="{{ $item->image_url }}" data-toggle="lightbox" data-title="{{ $astroturf->title }}" data-gallery="gallery">
+                                            <img src="{{ $item->image_url }}" class="img-fluid mb-2" alt="white sample"/>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <!-- /.tab-pane -->
                     </div>
                     <!-- /.tab-content -->
                 </div><!-- /.card-body -->
@@ -153,9 +175,19 @@
     <script src="{{ asset('theme/plugins/fullcalendar-bootstrap/main.min.js') }}"></script>
     <script src="{{ asset('theme/plugins/fullcalendar-rrule/vendor_rrule.js') }}"></script>
     <script src="{{ asset('theme/plugins/fullcalendar-rrule/main.min.js') }}"></script>
+
+    <!-- Ekko Lightbox -->
+    <script src="{{ asset('theme/plugins/ekko-lightbox/ekko-lightbox.min.js') }}"></script>
     <!-- Page specific script -->
     <script>
         $(function () {
+
+            $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
 
             //Initialize Select2 Elements
             $('.select2').select2()

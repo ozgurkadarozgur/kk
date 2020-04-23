@@ -25,6 +25,11 @@ class Astroturf extends Model
 
     protected $table = 'astroturfs';
 
+    public function gallery()
+    {
+        return $this->hasMany(AstroturfGallery::class, 'astroturf_id');
+    }
+
     public function facility()
     {
         return $this->belongsTo(Facility::class, 'facility_id');

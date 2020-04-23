@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\CloudinaryHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Requests\Admin\Astroturf\UpdateAstroturfRequest;
 use App\Http\Requests\Admin\AstroturfCalendar\DestroyCalendarRequest;
 use App\Http\Requests\Admin\AstroturfCalendar\DestroySubscribedCalendarRequest;
 use App\Http\Requests\Admin\AstroturfCalendar\StoreCalendarRequest;
+use App\Http\Requests\Admin\AstroturfGallery\StoreGalleryItemRequest;
 use App\Http\Resources\AstroturfCalendar\AstroturfCalendarResource;
 use App\Models\AstroturfCalendar;
 use App\Repositories\Interfaces\IAstroturfCalendarRepository;
+use App\Repositories\Interfaces\IAstroturfGalleryRepository;
 use App\Repositories\Interfaces\IAstroturfRepository;
 use App\Repositories\Interfaces\IAstroturfServiceRepository;
 use Carbon\Carbon;
@@ -22,13 +25,15 @@ class AstroturfController extends Controller
     private $astroturfRepository;
     private $astroturfCalendarRepository;
     private $astroturfServiceRepository;
+    private $astroturfGalleryRepository;
 
-    public function __construct(IAstroturfRepository $astroturfRepository, IAstroturfCalendarRepository $astroturfCalendarRepository, IAstroturfServiceRepository $astroturfServiceRepository)
+    public function __construct(IAstroturfRepository $astroturfRepository, IAstroturfCalendarRepository $astroturfCalendarRepository, IAstroturfServiceRepository $astroturfServiceRepository, IAstroturfGalleryRepository $astroturfGalleryRepository)
     {
         $this->middleware(AdminMiddleware::class);
         $this->astroturfRepository = $astroturfRepository;
         $this->astroturfCalendarRepository = $astroturfCalendarRepository;
         $this->astroturfServiceRepository = $astroturfServiceRepository;
+        $this->astroturfGalleryRepository = $astroturfGalleryRepository;
     }
 
     /**
@@ -139,6 +144,22 @@ class AstroturfController extends Controller
     {
         $validated = $request->validated();
         $this->astroturfCalendarRepository->delete($validated['subscribed_calendar_id']);
+        return redirect()->back();
+    }
+
+    public function store_gallery_item(StoreGalleryItemRequest $request, $id)
+    {
+        $validated = $request->validated();
+        if (isset($validated['image'])) {
+            $upload_result = CloudinaryHelper::upload_image($validated['image'], 'assets');
+            if ($upload_result) {
+                $data = [
+                    'astroturf_id' => $id,
+                    'image_url' => $upload_result['url']
+                ];
+                $this->astroturfGalleryRepository->create($data);
+            }
+        }
         return redirect()->back();
     }
 

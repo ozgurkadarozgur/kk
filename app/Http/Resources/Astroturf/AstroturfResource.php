@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Astroturf;
 
+use App\Http\Resources\AstroturfGallery\AstroturfGalleryResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AstroturfResource extends JsonResource
@@ -20,6 +21,7 @@ class AstroturfResource extends JsonResource
             'city' => $this->city,
             'district' => $this->district,
             'phone' => $this->phone,
+            'gallery' => AstroturfGalleryResource::collection($this->gallery),
             'address' => $this->address,
             'price' => $this->price,
             'work_hour_start' => $this->work_hour_start,

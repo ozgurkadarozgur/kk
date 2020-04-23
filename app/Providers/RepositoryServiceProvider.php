@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Repositories\AstroturfCalendarRepository;
+use App\Repositories\AstroturfGalleryRepository;
 use App\Repositories\AstroturfRepository;
 use App\Repositories\AstroturfServiceRepository;
 use App\Repositories\CategoryRepository;
@@ -14,6 +15,7 @@ use App\Repositories\EliminationRepository;
 use App\Repositories\FacilityRepository;
 use App\Repositories\FacilityUserRepository;
 use App\Repositories\Interfaces\IAstroturfCalendarRepository;
+use App\Repositories\Interfaces\IAstroturfGalleryRepository;
 use App\Repositories\Interfaces\IAstroturfRepository;
 use App\Repositories\Interfaces\IAstroturfServiceRepository;
 use App\Repositories\Interfaces\ICategoryRepository;
@@ -188,6 +190,10 @@ class RepositoryServiceProvider extends ServiceProvider
           OrderRepository::class
         );
 
+        $this->app->bind(
+          IAstroturfGalleryRepository::class,
+          AstroturfGalleryRepository::class
+        );
     }
 
     /**
