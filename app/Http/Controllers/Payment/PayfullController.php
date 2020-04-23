@@ -10,6 +10,7 @@ use App\Repositories\Interfaces\ILeagueApplicationRepository;
 use App\Repositories\Interfaces\IOrderRepository;
 use App\Repositories\Interfaces\IPlayerAstroturfReservationRepository;
 use App\Repositories\Interfaces\IVSRepository;
+use App\Repositories\Interfaces\IVSReservationRepository;
 
 class PayfullController extends Controller
 {
@@ -18,14 +19,16 @@ class PayfullController extends Controller
     private $vsRepository;
     private $playerAstroturfReservationRepository;
     private $orderRepository;
+    private $vsReservationRepository;
 
-    public function __construct(ILeagueApplicationRepository $leagueApplicationRepository, IEliminationApplicationRepository $eliminationApplicationRepository, IVSRepository $vsRepository, IPlayerAstroturfReservationRepository $playerAstroturfReservationRepository, IOrderRepository $orderRepository)
+    public function __construct(ILeagueApplicationRepository $leagueApplicationRepository, IEliminationApplicationRepository $eliminationApplicationRepository, IVSRepository $vsRepository, IPlayerAstroturfReservationRepository $playerAstroturfReservationRepository, IOrderRepository $orderRepository, IVSReservationRepository $vsReservationRepository)
     {
         $this->leagueApplicationRepository = $leagueApplicationRepository;
         $this->eliminationApplicationRepository = $eliminationApplicationRepository;
         $this->vsRepository = $vsRepository;
         $this->playerAstroturfReservationRepository = $playerAstroturfReservationRepository;
         $this->orderRepository = $orderRepository;
+        $this->vsReservationRepository = $vsReservationRepository;
     }
 
     public function handle_response()
@@ -66,7 +69,8 @@ class PayfullController extends Controller
                         $vs_id = $meta->vs_id;
                         $team_title = $meta->team_title;
                         $status_code = VSStatus::INVITER_APPROVED;
-                        $this->vsRepository->update_status($vs_id, $team_title, $status_code);
+                        $vs = $this->vsRepository->update_status($vs_id, $team_title, $status_code);
+                        $this->vsReservationRepository->create($vs);
                         break;
                     }
                     case PayfullHelper::PROCESS_TYPE_ASTROTURF_RESERVATION : {

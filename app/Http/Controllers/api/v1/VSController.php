@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api\v1;
 
+use App\Helpers\PayfullHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\VS\InvitedApproveRequest;
 use App\Http\Requests\Api\VS\InvitedRejectRequest;
@@ -56,6 +57,8 @@ class VSController extends Controller
     public function invited_approve(InvitedApproveRequest $request, $id)
     {
         $validated = $request->validated();
+        $user = $request->user();
+        $card = $validated['card'];
         $vs = $this->vsRepository->findById($id);
         if ($vs->invited_id != $request->user()->id) {
             return response()->json([
@@ -63,7 +66,29 @@ class VSController extends Controller
                 'message' => 'İşlem yaptığınız VS isteği size ait değildir.'
             ], Response::HTTP_BAD_REQUEST);
         }
+        $team = $this->teamRepository->findById($vs->invited_team_id);
         //dd($validated);
+        $meta = [
+            'vs_id' => $id,
+            'team_title' => $team->title,
+            'process_type' => PayfullHelper::PROCESS_TYPE_VS_INVITED_ACCEPT,
+        ];
+        $meta = json_encode($meta);
+
+        try {
+            $response = PayfullHelper::request($user, $card, '0.01', $meta);
+            return response()->json($response);
+            //return $response->data;
+        } catch (\Exception $ex) {
+            return response()->json([
+                'status' => 'error',
+                'file' => $ex->getFile(),
+                'line' => $ex->getLine(),
+                'message' => $ex->getMessage()
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        /*
         $team = $this->teamRepository->findById($vs->invited_team_id);
         $vs = $this->vsRepository->update_status($id, $team->title,VSStatus::INVITED_APPROVED);
         if ($vs) {
@@ -76,6 +101,7 @@ class VSController extends Controller
                 'status' => 'error',
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+        */
     }
 
     public function invited_reject(InvitedRejectRequest $request, $id)
@@ -100,6 +126,7 @@ class VSController extends Controller
     public function inviter_approve(InviterApproveRequest $request, $id)
     {
         $validated = $request->validated();
+        $user = $request->user();
         $vs = $this->vsRepository->findById($id);
         if ($vs->inviter_id != $request->user()->id) {
             return response()->json([
@@ -107,8 +134,30 @@ class VSController extends Controller
                 'message' => 'İşlem yaptığınız VS isteği size ait değildir.'
             ], Response::HTTP_BAD_REQUEST);
         }
-        //dd($validated);
+        $card = $validated['card'];
         $team = $this->teamRepository->findById($vs->inviter_team_id);
+        $meta = [
+            'vs_id' => $id,
+            'team_title' => $team->title,
+            'process_type' => PayfullHelper::PROCESS_TYPE_VS_INVITER_ACCEPT,
+        ];
+        $meta = json_encode($meta);
+
+        try {
+            $response = PayfullHelper::request($user, $card, '0.01', $meta);
+            return response()->json($response);
+            //return $response->data;
+        } catch (\Exception $ex) {
+            return response()->json([
+                'status' => 'error',
+                'file' => $ex->getFile(),
+                'line' => $ex->getLine(),
+                'message' => $ex->getMessage()
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+
+        /*$team = $this->teamRepository->findById($vs->inviter_team_id);
         $vs = $this->vsRepository->update_status($id, $team->title,VSStatus::INVITER_APPROVED);
         if ($vs) {
             $this->vsReservationRepository->create($vs);
@@ -121,7 +170,7 @@ class VSController extends Controller
                 'status' => 'error',
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
-
+*/
     }
 
     public function inviter_cancel(InviterCancelRequest $request, $id)
