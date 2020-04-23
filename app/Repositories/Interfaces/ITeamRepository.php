@@ -20,7 +20,7 @@ interface ITeamRepository
 
     public function findByIdList(array $id_list) : Collection;
 
-    public function findTeamsForVs(Player $player) : Collection;
+    public function findTeamsForVs(Player $player) : LengthAwarePaginator;
 
     public function setLineup(int $id, $data) : ?Team;
 

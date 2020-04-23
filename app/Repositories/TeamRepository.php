@@ -40,10 +40,10 @@ class TeamRepository implements ITeamRepository
         }
     }
 
-    public function findTeamsForVs(Player $player) : Collection
+    public function findTeamsForVs(Player $player) : LengthAwarePaginator
     {
         try {
-            $teams = Team::join('team_members', 'team_members.teamId', '=', 'teams.id')
+            $teams = Team::join('team_members', 'team_members.team_id', '=', 'teams.id')
                 ->where('is_active', true)
                 ->whereNotIn('teams.id', $player->teams->pluck('id'))
                 ->groupBy('teams.id')
