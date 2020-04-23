@@ -31,7 +31,8 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = $this->teamRepository->paginate(20);
+        $player = \request()->user();
+        $teams = $this->teamRepository->findTeamsForVs($player);
         if ($teams) {
             return response()->json([
                 'data' => new TeamCollection($teams),

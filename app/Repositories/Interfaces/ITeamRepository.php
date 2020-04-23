@@ -9,6 +9,7 @@
 namespace App\Repositories\Interfaces;
 
 
+use App\Models\Player;
 use App\Models\Team;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
@@ -18,6 +19,8 @@ interface ITeamRepository
     public function findById(int $id) : ?Team;
 
     public function findByIdList(array $id_list) : Collection;
+
+    public function findTeamsForVs(Player $player) : Collection;
 
     public function setLineup(int $id, $data) : ?Team;
 

@@ -9,6 +9,7 @@
 namespace App\Repositories;
 
 
+use App\Models\Player;
 use App\Models\Team;
 use App\Repositories\Interfaces\ITeamRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -32,6 +33,24 @@ class TeamRepository implements ITeamRepository
     {
         try {
             $teams = Team::find($id_list);
+            return $teams;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
+    public function findTeamsForVs(Player $player) : Collection
+    {
+        try {
+            $teams = Team::join('team_members', 'team_members.teamId', '=', 'teams.id')
+                ->where('is_active', true)
+                ->whereNotIn('teams.id', $player->teams->pluck('id'))
+                ->groupBy('teams.id')
+                ->havingRaw("count(teams.id) >= 6")
+                ->orderBy('teams.created_at', 'desc')
+                ->select(['teams.id', 'teams.title'])
+                ->paginate(20);
             return $teams;
         } catch (\Exception $ex) {
             if (env('APP_DEBUG')) dd($ex);
