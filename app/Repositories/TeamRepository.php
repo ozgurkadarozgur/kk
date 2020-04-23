@@ -49,7 +49,7 @@ class TeamRepository implements ITeamRepository
                 ->groupBy('teams.id')
                 ->havingRaw("count(teams.id) >= 6")
                 ->orderBy('teams.created_at', 'desc')
-                ->select(['teams.id', 'teams.title'])
+                ->select('teams.*')
                 ->paginate(20);
             return $teams;
         } catch (\Exception $ex) {
