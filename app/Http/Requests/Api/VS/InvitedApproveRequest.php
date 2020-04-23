@@ -24,11 +24,12 @@ class InvitedApproveRequest extends FormRequest
     public function rules()
     {
         return [
-            'holderName' => 'required',
-            'cardNumber' => 'required',
-            'expireMonth' => 'required',
-            'expireYear' => 'required',
-            'cvc' => 'required',
+            'card' => 'required',
+            'card.holderName' => 'required',
+            'card.cardNumber' => 'required',
+            'card.expireMonth' => 'required',
+            'card.expireYear' => 'required',
+            'card.cvc' => 'required',
         ];
     }
 
