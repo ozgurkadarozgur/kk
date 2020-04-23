@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Http\Requests\Api\VS\VSRequest;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -45,12 +44,12 @@ class Player extends Authenticatable
 
     public function incoming_vs_requests()
     {
-        return $this->hasMany(VSRequest::class, 'invited_team_id');
+        return $this->hasMany(VS::class, 'invited_team_id');
     }
 
     public function outgoing_vs_requests()
     {
-        return $this->hasMany(VSRequest::class, 'inviter_team_id');
+        return $this->hasMany(VS::class, 'inviter_team_id');
     }
 
     public function getSkillListAttribute()
