@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Order;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class OrderResource extends JsonResource
@@ -19,7 +20,7 @@ class OrderResource extends JsonResource
             'total' => $this->total,
             'address' => $this->address,
             'items' => OrderItemResource::collection($this->items),
-            'created_at' => $this->created_at,
+            'created_at' => Carbon::parse($this->created_at)->isoFormat('LL'),
         ];
     }
 }
