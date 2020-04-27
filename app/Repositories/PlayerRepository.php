@@ -100,4 +100,17 @@ class PlayerRepository implements IPlayerRepository
             return null;
         }
     }
+
+
+    public function update(int $id, array $data): ?Player
+    {
+        try {
+            $player = $this->findById($id);
+            $player->update($data);
+            return $player;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
 }

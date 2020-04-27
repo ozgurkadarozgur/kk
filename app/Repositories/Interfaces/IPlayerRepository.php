@@ -27,4 +27,6 @@ interface IPlayerRepository
     public function create($data) : ?Player;
 
     public function resetPassword(Player $player, string $new_password) : ?Player;
+
+    public function update(int $id, array $data) : ?Player;
 }

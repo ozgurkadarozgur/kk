@@ -27,6 +27,10 @@ class Player extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 
+    protected $fillable = [
+      'city_id', 'district_id', 'nick_name',
+    ];
+
     public function city()
     {
         return $this->belongsTo(City::class, 'city_id');

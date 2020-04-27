@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\api\v1;
 
 use App\Helpers\ApiResponseHelper;
+use App\Helpers\CloudinaryHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Player\SetPlayerImageRequest;
 use App\Http\Requests\Api\Player\StorePlayerRequest;
+use App\Http\Requests\Api\Player\UpdatePlayerRequest;
 use App\Http\Resources\ParticipatedTournaments\ParticipatedTournamentsResource;
 use App\Http\Resources\Player\PlayerCollection;
 use App\Http\Resources\Player\PlayerResource;
@@ -102,6 +105,44 @@ class PlayerController extends Controller
             'data' => new ParticipatedTournamentsResource($user),
             'status' => 'success',
         ], Response::HTTP_OK);
+    }
+
+    public function update(UpdatePlayerRequest $request)
+    {
+        $validated = $request->validated();
+        $user = $request->user();
+        $player = $this->playerRepository->update($user->id, $validated);
+        if ($player) {
+            return response()->json([
+                'data' => new PlayerResource($player),
+                'status' => 'success',
+            ], Response::HTTP_OK);
+        } else {
+            return response()->json([
+                'status' => 'error',
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function set_image(SetPlayerImageRequest $request)
+    {
+        $validated = $request->validated();
+        $player = $request->user();
+        if (isset($validated['image'])) {
+            $upload_result = CloudinaryHelper::upload_image($validated['image'], 'assets');
+            if ($upload_result) {
+                $player->image_url = $upload_result['url'];
+                $player->save();
+                return response()->json([
+                    'data' => new PlayerResource($player),
+                    'status' => 'success',
+                ], Response::HTTP_OK);
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            }
+        }
     }
 
 }
