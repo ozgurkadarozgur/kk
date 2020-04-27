@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Player\SetPlayerImageRequest;
 use App\Http\Requests\Api\Player\StorePlayerRequest;
 use App\Http\Requests\Api\Player\UpdatePlayerRequest;
+use App\Http\Resources\Order\OrderResource;
 use App\Http\Resources\ParticipatedTournaments\ParticipatedTournamentsResource;
 use App\Http\Resources\Player\PlayerCollection;
 use App\Http\Resources\Player\PlayerResource;
@@ -143,6 +144,15 @@ class PlayerController extends Controller
                 ], Response::HTTP_INTERNAL_SERVER_ERROR);
             }
         }
+    }
+
+    public function orders(Request $request)
+    {
+        $user = $request->user();
+        return response()->json([
+            'status' => 'success',
+            'data' => OrderResource::collection($user->orders)
+        ], Response::HTTP_OK);
     }
 
 }
