@@ -21,6 +21,7 @@ class EliminationResource extends JsonResource
             'is_started' => $this->is_started,
             'type' => 'Eleme',
             'facility' => $this->facility->title,
+            'facility_id' => $this->facility_id,
             'title' => $this->title,
             'image_url' => $this->image_url,
             'start_date' => $this->start_date,

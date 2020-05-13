@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\LeagueFixture;
 
+use App\Http\Resources\Team\TeamResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class LeagueFixtureResource extends JsonResource
@@ -17,16 +18,24 @@ class LeagueFixtureResource extends JsonResource
         return [
             'id' => $this->id,
             'team1' => [
+                'info' => new TeamResource($this->team1),
+                'score' => $this->team1_score,
+                /*
                 'id' => $this->team1->id,
                 'title' => $this->team1->title,
                 'uniform' => $this->team1->uniform,
                 'score' => $this->team1_score,
+                */
             ],
             'team2' => [
+                'info' => new TeamResource($this->team2),
+                'score' => $this->team2_score,
+                /*
                 'id' => $this->team2->id,
                 'title' => $this->team2->title,
                 'uniform' => $this->team2->uniform,
                 'score' => $this->team2_score,
+                */
             ],
             'astroturf' => ($this->astroturf_id != null) ? [
                 'id' => $this->astroturf->id,
