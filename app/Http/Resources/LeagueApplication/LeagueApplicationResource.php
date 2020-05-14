@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\LeagueApplication;
 
+use App\Http\Resources\Team\TeamResource;
 use App\Http\Resources\TeamMember\TeamMemberResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,13 +18,7 @@ class LeagueApplicationResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'team' => [
-                'id' => $this->team->id,
-                'title' => $this->team->title,
-                'power' => $this->team->average_power(),
-                'lineup' => $this->team->lineup,
-                'members' => TeamMemberResource::collection($this->team->members),
-            ],
+            'team' => new TeamResource($this->team),
         ];
     }
 }
