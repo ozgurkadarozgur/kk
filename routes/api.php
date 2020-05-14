@@ -85,6 +85,10 @@ Route::group(['domain' => 'api.'.env('APP_MAIN_URL'), 'middleware' => 'auth:api'
         Route::post('/{id}/inviter-cancel', 'VSController@inviter_cancel');
     });
 
+    Route::group(['prefix' => 'facilities'], function () {
+        Route::get('/{id}', 'FacilityController@show');
+    });
+
     Route::group(['prefix' => 'eliminations'], function () {
         Route::get('/', 'EliminationController@index');
         Route::post('/{id}/apply', 'EliminationController@apply');
