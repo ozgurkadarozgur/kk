@@ -22,6 +22,7 @@ use Laravel\Passport\HasApiTokens;
  * @property $image_url
  * @property $transfer_status
  * @property $skills
+ * @property $positions
  */
 class Player extends Authenticatable
 {
@@ -62,6 +63,17 @@ class Player extends Authenticatable
         if ($skills){
             $skills = json_decode($skills);
             return PlayerSkill::find($skills);
+        } else {
+            return array();
+        }
+    }
+
+    public function getPositionListAttribute()
+    {
+        $positions = $this->positions;
+        if ($positions){
+            $positions = json_decode($positions);
+            return $positions;
         } else {
             return array();
         }

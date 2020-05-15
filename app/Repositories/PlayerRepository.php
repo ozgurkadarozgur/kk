@@ -80,6 +80,7 @@ class PlayerRepository implements IPlayerRepository
             $player->city_id = $data['city_id'];
             $player->district_id = $data['district_id'];
             $player->skills = $data['skills'];
+            $player->positions = json_encode(json_decode($data['positions']));
             $player->transfer_status = $data['transfer_status'];
             $player->save();
             return $player;

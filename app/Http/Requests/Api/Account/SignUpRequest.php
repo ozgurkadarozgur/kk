@@ -32,6 +32,7 @@ class SignUpRequest extends FormRequest
             'city_id' => 'required|exists:cities,id',
             'district_id' => 'required|exists:districts,id',
             'skills' => 'required|json',
+            'positions' => 'required|json',
             'transfer_status' => 'required',
         ];
     }
