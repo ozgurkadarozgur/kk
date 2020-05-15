@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $bank_account
  * @property $city_id
  * @property $district_id
+ * @property $image_url
  * @property $is_active
  */
 class Facility extends Model

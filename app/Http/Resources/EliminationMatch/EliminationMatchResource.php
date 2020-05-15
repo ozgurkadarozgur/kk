@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\EliminationMatch;
 
+use App\Http\Resources\Team\TeamResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class EliminationMatchResource extends JsonResource
@@ -17,15 +18,11 @@ class EliminationMatchResource extends JsonResource
         return [
             'id' => $this->id,
             'team1' => [
-                'id' => $this->team1->id,
-                'title' => $this->team1->title,
-                'uniform' => $this->team1->uniform,
+                'info' => new TeamResource($this->team1),
                 'score' => $this->team1_score,
             ],
             'team2' => [
-                'id' => $this->team2->id,
-                'title' => $this->team2->title,
-                'uniform' => $this->team2->uniform,
+                'info' => new TeamResource($this->team2),
                 'score' => $this->team2_score,
             ],
             'astroturf' => ($this->astroturf_id != null) ? [

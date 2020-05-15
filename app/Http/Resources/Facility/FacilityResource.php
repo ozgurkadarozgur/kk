@@ -18,6 +18,7 @@ class FacilityResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'image_url' => $this->image_url,
             'owner' => $this->owner,
             'phone' => $this->phone,
             'city' => $this->city->title,
