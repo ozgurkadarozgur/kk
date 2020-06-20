@@ -37,4 +37,31 @@ class CityRepository implements ICityRepository
             return null;
         }
     }
+
+    public function customOrder() : Collection
+    {
+        try {
+
+                //40 istanbul
+                //7 ankara
+                //41 izmir
+                //1 adana
+
+                $istanbul = City::find(40);
+                $ankara = City::find(7);
+                $izmir = City::find(41);
+                $adana = City::find(1);
+                $cities = City::whereNotIn('id', [1,7,40,41])->get();
+                $cities = collect($cities);
+                $cities->prepend($adana);
+                $cities->prepend($izmir);
+                $cities->prepend($ankara);
+                $cities->prepend($istanbul);
+                return $cities;
+        } catch (\Exception $ex) {
+            if (env('APP_DEBUG')) dd($ex);
+            return null;
+        }
+    }
+
 }

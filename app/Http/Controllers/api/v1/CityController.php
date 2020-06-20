@@ -20,7 +20,7 @@ class CityController extends Controller
 
     public function index()
     {
-        $cities = $this->cityRepository->all();
+        $cities = $this->cityRepository->customOrder();
         return response()->json([
             'data' => $cities,
             'status' => 'success',

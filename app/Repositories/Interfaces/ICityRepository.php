@@ -17,4 +17,6 @@ interface ICityRepository
     public function findById(int $id) : City;
 
     public function all() : Collection;
+
+    public function customOrder() : Collection;
 }
