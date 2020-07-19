@@ -38,6 +38,7 @@
                     <th>Telefon</th>
                     <th>İl</th>
                     <th>İlçe</th>
+                    <th>Telefon Kodu</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -49,6 +50,7 @@
                         <td>{{ $item->phone }}</td>
                         <td>{{ $item->city }}</td>
                         <td>{{ $item->district }}</td>
+                        <td>{{ $item->phone_code }}</td>
                     </tr>
                 @endforeach
                 </tbody>
